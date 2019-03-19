@@ -1,7 +1,9 @@
-package com.infobite.niramayahospital;
+package com.infobite.niramayahospital.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.infobite.niramayahospital.R;
 
 public class MainActivity extends AppCompatActivity {
 
