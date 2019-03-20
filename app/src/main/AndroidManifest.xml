@@ -10,8 +10,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.PrescriptionActivity"></activity>
-        <activity android:name=".activity.schedule_section.ScheduleActivity" />
+        <!--<activity android:name=".activity.schedule_section.ScheduleActivity" />
         <activity android:name=".activity.MainActivity">
+
+            &lt;!&ndash;
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            &ndash;&gt;
+        </activity>-->
+        <activity
+            android:name=".ui.activity.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Base"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".TestActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity">
 
             <!--
             <intent-filter>
@@ -22,16 +45,8 @@
             -->
         </activity>
         <activity
-            android:name=".ui.activity.HomeActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Base"
-            android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".ui.activity.schedule_section.ScheduleActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

@@ -9,7 +9,16 @@
         android:endColor="@color/red_e"
         android:startColor="@color/red_e"
         android:type="linear" />
-    <!--<stroke
+<!--=======
+    <corners android:radius="2dp" />
+    <gradient
+        android:angle="270"
+        android:centerX="55%"
+        android:endColor="@color/green_dark"
+        android:startColor="@color/green_light"
+>>>>>>> cc1d14217882c6b3325c9c6ec822a1fd79d1e44d
+        android:type="linear" />
+   --> <!--<stroke
         android:width="1dp"
         android:color="@color/gray_f" />-->
 </shape>

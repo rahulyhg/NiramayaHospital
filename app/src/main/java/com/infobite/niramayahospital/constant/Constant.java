@@ -47,4 +47,7 @@ public class Constant {
     public static final String IMAGE = "https://27jts3o00yy49vo2y30wem91-wpengine.netdna-ssl.com/wp-content/uploads/2018/05/ASSET-USER-ADMIN-300x300.png";
     public static final String Latitude = "latitude";
     public static final String Longitude = "longitude";
+    public static final String ContactFragment = "ContactFragment";
+    public static final String PersonalDetailFragment = "PersonalDetailFragment";
+    public static final String ServiceDetailFragment = "ServiceDetailFragment";
 }
