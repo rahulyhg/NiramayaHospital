@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.PrescriptionActivity"></activity>
+        <activity android:name=".ui.activity.PrescriptionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!--<activity android:name=".activity.schedule_section.ScheduleActivity" />
         <activity android:name=".activity.MainActivity">
 
@@ -28,11 +34,11 @@
             android:windowSoftInputMode="stateHidden"></activity>
         <activity android:name=".TestActivity"
             android:screenOrientation="portrait">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
         <activity android:name=".MainActivity">
 
@@ -47,6 +53,10 @@
         <activity
             android:name=".ui.activity.schedule_section.ScheduleActivity"
             android:screenOrientation="portrait"/>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="cebbe6be8ceeb74cb521b3d099244fcebbb65168" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
