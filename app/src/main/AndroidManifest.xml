@@ -9,7 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".ui.TestActivity"
+=======
+        <activity android:name=".ui.activity.PrescriptionActivity"></activity>
+        <!--<activity android:name=".activity.schedule_section.ScheduleActivity" />
+        <activity android:name=".activity.MainActivity">
+
+            &lt;!&ndash;
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            &ndash;&gt;
+        </activity>-->
+        <activity
+            android:name=".ui.activity.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Base"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".TestActivity"
+>>>>>>> 0287093435f7c92b3abb888cd2f91b77c8f03c46
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

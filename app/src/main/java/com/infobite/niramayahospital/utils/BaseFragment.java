@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 public class BaseFragment extends Fragment {
 
     //public RetrofitApiClient retrofitApiClient;
-  //  public ConnectionDetector cd;
+    public ConnectionDetector cd;
     public Context mContext;
     public Activity activity;
 
@@ -26,7 +26,7 @@ public class BaseFragment extends Fragment {
         super.onCreateView(inflater, container, savedInstanceState);
         activity = getActivity();
         mContext = getActivity();
-   //     cd = new ConnectionDetector(mContext);
+        cd = new ConnectionDetector(mContext);
         //retrofitApiClient = RetrofitService.getRetrofit();
         return null;
     }
