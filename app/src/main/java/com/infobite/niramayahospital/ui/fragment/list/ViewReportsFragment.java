@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.fragment.profile_details.patient_list;
+package com.infobite.niramayahospital.ui.fragment.list;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.activity.schedule_section;
+package com.infobite.niramayahospital.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
