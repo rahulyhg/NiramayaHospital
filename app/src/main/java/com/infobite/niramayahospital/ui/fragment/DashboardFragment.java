@@ -8,9 +8,11 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.ui.activity.PrescriptionActivity;
+import com.infobite.niramayahospital.ui.activity.UpcomingAppointmentActivity;
 import com.infobite.niramayahospital.utils.BaseFragment;
 import com.infobite.niramayahospital.utils.ConnectionDetector;
 
@@ -23,6 +25,7 @@ import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
 public class DashboardFragment extends BaseFragment implements View.OnClickListener {
 
     private View rootView;
+    private TextView tvUpcomingAppointment;
 
 
     @Nullable
@@ -34,6 +37,9 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
     }
 
     private void init() {
+
+        tvUpcomingAppointment = rootView.findViewById(R.id.tvUpcomingAppointment);
+
         imgSearch.setVisibility(View.VISIBLE);
         imgSort.setVisibility(View.GONE);
 
@@ -41,6 +47,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
         mContext = getActivity();
         cd = new ConnectionDetector(mContext);
         imgSearch.setOnClickListener(this);
+        tvUpcomingAppointment.setOnClickListener(this);
     }
 
     @Override
@@ -49,6 +56,10 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
             case R.id.imgSearch :
 
                 break;
+            case R.id.tvUpcomingAppointment :
+                startActivity(new Intent(mContext, UpcomingAppointmentActivity.class));
+                break;
+
         }
     }
 }

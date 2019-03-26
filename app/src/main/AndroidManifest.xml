@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.infobite.niramayahospital">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,13 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.PrescriptionActivity"
-            android:windowSoftInputMode="adjustPan"
-            >
-        </activity>
-        <activity android:name=".ui.TestActivity"/>
-
-        <!--<activity android:name=".activity.schedule_section.ScheduleActivity" />
+        <activity android:name=".ui.activity.UpcomingAppointmentActivity"></activity>
+        <activity
+            android:name=".ui.activity.PrescriptionActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity android:name=".ui.TestActivity" />
+        <!--
+<activity android:name=".activity.schedule_section.ScheduleActivity" />
         <activity android:name=".activity.MainActivity">
 
             &lt;!&ndash;
@@ -27,30 +28,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             &ndash;&gt;
-        </activity>-->
+        </activity>
+        -->
         <activity
             android:name=".ui.activity.HomeActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Base"
             android:windowSoftInputMode="stateHidden">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity android:name=".MainActivity">
 
-            <!--<intent-filter>
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
         <activity
             android:name=".ui.activity.ScheduleActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.SplashActivity" >
+            android:screenOrientation="portrait" />
+        <activity android:name=".ui.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,5 +71,4 @@
             android:value="cebbe6be8ceeb74cb521b3d099244fcebbb65168" />
     </application>
 
-    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
