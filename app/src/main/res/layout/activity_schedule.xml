@@ -5,12 +5,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".ui.activity.schedule_section.ScheduleActivity">
+    tools:context=".ui.activity.ScheduleActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@drawable/layout_bg4"
+        android:visibility="gone"
         android:paddingLeft="16dp">
 
         <ImageView
@@ -175,6 +176,7 @@
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rvSchedulePatientList"
+                tools:listitem="@layout/row_schedule_patient_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>

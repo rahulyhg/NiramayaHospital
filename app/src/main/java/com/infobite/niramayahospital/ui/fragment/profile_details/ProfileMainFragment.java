@@ -14,6 +14,12 @@ import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.adapter.ProfilePagerAdapter;
 import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.utils.BaseFragment;
+import com.infobite.niramayahospital.utils.ConnectionDetector;
+
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgEditProfile;
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgNotification;
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSearch;
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
 
 public class ProfileMainFragment extends BaseFragment implements View.OnClickListener {
     private View rootView;
@@ -34,6 +40,17 @@ public class ProfileMainFragment extends BaseFragment implements View.OnClickLis
      if (viewPager != null){
         profilePagerAdapter = new ProfilePagerAdapter(getChildFragmentManager());
         viewPager.setAdapter(profilePagerAdapter);*/
+
+            imgSearch.setVisibility(View.GONE);
+            imgSort.setVisibility(View.GONE);
+            imgNotification.setVisibility(View.VISIBLE);
+            imgEditProfile.setVisibility(View.VISIBLE);
+
+            activity = getActivity();
+            mContext = getActivity();
+            cd = new ConnectionDetector(mContext);
+            imgSearch.setOnClickListener(this);
+            imgEditProfile.setOnClickListener(this);
 
         rootView.findViewById(R.id.tvContactDetails).setOnClickListener(this);
         rootView.findViewById(R.id.tvPersonalDetails).setOnClickListener(this);
@@ -72,6 +89,13 @@ public class ProfileMainFragment extends BaseFragment implements View.OnClickLis
                 ((TextView)rootView.findViewById(R.id.tvPersonalDetails)).setBackgroundColor(getResources().getColor(R.color.gray_i));
                 ((TextView)rootView.findViewById(R.id.tvContactDetails)).setBackgroundColor(getResources().getColor(R.color.gray_i));
                 break;
+            case R.id.imgEditProfile:
+                replaceFragment(new ContactEditFragment(), Constant.ContactEditFragment);
+                ((TextView)rootView.findViewById(R.id.tvContactDetails)).setBackground(getResources().getDrawable(R.drawable.layout_bg_gray_p6));
+                ((TextView)rootView.findViewById(R.id.tvPersonalDetails)).setBackgroundColor(getResources().getColor(R.color.gray_i));
+                ((TextView)rootView.findViewById(R.id.tvServiceDetails)).setBackgroundColor(getResources().getColor(R.color.gray_i));
+                break;
+
         }
     }
 }

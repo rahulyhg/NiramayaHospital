@@ -1,5 +1,6 @@
 package com.infobite.niramayahospital.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.infobite.niramayahospital.R;
+import com.infobite.niramayahospital.ui.activity.PrescriptionActivity;
 import com.infobite.niramayahospital.utils.BaseFragment;
 import com.infobite.niramayahospital.utils.ConnectionDetector;
 
@@ -38,10 +40,15 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
         activity = getActivity();
         mContext = getActivity();
         cd = new ConnectionDetector(mContext);
+        imgSearch.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.imgSearch :
 
+                break;
+        }
     }
 }

@@ -13,13 +13,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!--<RelativeLayout
+    <RelativeLayout
         android:id="@+id/nav_left"
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@color/gray_g"
         android:clickable="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none"
+        android:fillViewport="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/tvMedicine"
@@ -37,8 +46,18 @@
             android:layout_below="@+id/tvMedicine"
             android:orientation="vertical"
             android:layout_marginTop="16dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:background="@color/white"/>
+        <TextView
+            android:id="@+id/tvClearMedicine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentRight="true"
+            android:text="Clear"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:layout_below="@+id/llMedicine"/>
 
         <TextView
             android:id="@+id/tvDose"
@@ -46,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:textSize="@dimen/size_18"
-            android:layout_below="@+id/llMedicine"
+            android:layout_below="@+id/tvClearMedicine"
             android:paddingLeft="16dp"
             android:text="Add Dose"/>
 
@@ -56,8 +75,19 @@
             android:layout_height="120dp"
             android:layout_below="@+id/tvDose"
             android:orientation="vertical"
-            android:layout_margin="10dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
             android:background="@color/white"/>
+        <TextView
+            android:id="@+id/tvClearDose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:layout_alignParentRight="true"
+            android:text="Clear"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:layout_below="@+id/llDose"/>
 
         <Button
             android:id="@+id/btnAdd"
@@ -79,31 +109,164 @@
             android:id="@+id/tvNote"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/size_18"
+            android:textSize="@dimen/size_16"
             android:text="add only one medicine at a time"
             android:gravity="center"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="16dp"/>
 
-    </RelativeLayout>-->
+    </RelativeLayout>
+    </ScrollView>
+
+    </RelativeLayout>
     <RelativeLayout
         android:id="@+id/nav_right"
-        android:layout_width="280dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
+        android:layout_gravity="end"
         android:background="@color/gray_g"
         android:clickable="true">
 
-        <Button
-            android:id="@+id/btnAddSearch"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="match_parent"
+            android:scrollbars="none"
+            android:fillViewport="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="8dp">
+
+            <TextView
+                android:id="@+id/tvTopTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/size_18"
+                android:text="Search the name of medicine"
+                android:gravity="center"
+                android:layout_marginTop="16dp"/>
+
+            <AutoCompleteTextView
+                android:id="@+id/edtSearch"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_toStartOf="@+id/imgSearch"
+                android:layout_toLeftOf="@+id/imgSearch"
+                android:layout_below="@+id/tvTopTitle"
+                android:background="@drawable/layout_bg6"
+                android:layout_marginTop="16dp"
+                android:hint="Search here ..."
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp"
+                android:textSize="@dimen/size_14" />
+
+            <ImageView
+                android:id="@+id/imgSearch"
+                android:layout_width="58dp"
+                android:layout_height="42dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tvTopTitle"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/layout_bg7"
+                android:padding="8dp"
+                android:src="@drawable/ic_search" />
+
+            <TextView
+                android:id="@+id/tvAddDose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="8dp"
+                android:textSize="@dimen/size_18"
+                android:text="Add Dose"
+                android:layout_below="@+id/imgSearch"/>
+
+            <EditText
+                android:id="@+id/etDose"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="8dp"
+                android:textSize="@dimen/size_14"
+                android:padding="8dp"
+                android:gravity="start"
+                android:background="@drawable/layout_bg6"
+                android:layout_below="@+id/tvAddDose"/>
+
+            <Button
+                android:id="@+id/btnAddMedicine"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/etDose"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="Add Medicine"
+                android:textAllCaps="false"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:background="@drawable/layout_bg_rhl4"/>
+
+            <TextView
+                android:id="@+id/tvSearchTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/size_18"
+                android:layout_below="@+id/btnAddMedicine"
+                android:text="Search the name of the test"
+                android:layout_marginTop="24dp"/>
+
+            <EditText
+                android:id="@+id/etTest"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_toStartOf="@+id/imgSearch"
+                android:layout_toLeftOf="@+id/imgSearch"
+                android:layout_below="@+id/tvSearchTitle"
+                android:background="@drawable/layout_bg6"
+                android:layout_marginTop="16dp"
+                android:hint="Search"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:paddingStart="16dp"
+                android:paddingLeft="16dp"
+                android:textSize="@dimen/size_14" />
+
+            <ImageView
+                android:id="@+id/imgSearch2"
+                android:layout_width="58dp"
+                android:layout_height="42dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/tvSearchTitle"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/layout_bg7"
+                android:padding="8dp"
+                android:src="@drawable/ic_search" />
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnAddTest"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
             android:layout_above="@+id/tvNoteSearch"
             android:layout_marginTop="24dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Add"
+            android:text="Add Test"
             android:textAllCaps="false"
             android:textSize="20sp"
             android:textColor="@color/white"
@@ -114,11 +277,16 @@
             android:id="@+id/tvNoteSearch"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/size_18"
-            android:text="add only one medicine at a time"
+            android:textSize="@dimen/size_16"
+            android:text="add only one medicine at a time can be added"
             android:gravity="center"
             android:layout_alignParentBottom="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
             android:layout_marginBottom="16dp"/>
+        </RelativeLayout>
+        </ScrollView>
+
     </RelativeLayout>
 
 </android.support.v4.widget.DrawerLayout>

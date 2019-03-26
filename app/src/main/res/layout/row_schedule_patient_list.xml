@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
 
 
@@ -15,7 +15,7 @@
             android:id="@+id/cv_patient_detail"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginLeft="16dp"
+            android:layout_marginLeft="6dp"
             android:layout_marginTop="6dp"
             android:layout_marginRight="6dp"
             android:layout_marginBottom="6dp"

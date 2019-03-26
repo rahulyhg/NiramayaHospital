@@ -26,7 +26,10 @@ public class Constant {
     public static final String Otp_Fragment = "OtpFragment";
     public static final String LoginFragment = "LoginFragment";
     public static final String Verification_Fragment = "Verification_Fragment";
+    public static final String ProfileFragment = "Profile_Fragment";
     public static final String ReportsFragment = "ReportsFragment";
+    public static final String PatientFragment = "PatientFragment";
+    public static final String DutiesFragment = "DutiesFragment";
     public static final String InvoiceFragment = "InvoiceFragment";
     public static final String BedFragment = "BedFragment";
     public static final String HistoryFragment = "HistoryFragment";
@@ -48,6 +51,11 @@ public class Constant {
     public static final String Latitude = "latitude";
     public static final String Longitude = "longitude";
     public static final String ContactFragment = "ContactFragment";
+    public static final String ContactEditFragment = "ContactEditFragment";
     public static final String PersonalDetailFragment = "PersonalDetailFragment";
     public static final String ServiceDetailFragment = "ServiceDetailFragment";
+    public static final String AddPrescriptionFragment = "AddPrescriptionFragment" ;
+    public static final String ViewReportsFragment =  "ViewReportsFragment";
+    public static final String PastHistoryFragment = "PastHistoryFragment";
+    public static final String NurseNotesFragment = "NurseNotesFragment";
 }

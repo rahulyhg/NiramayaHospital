@@ -37,6 +37,7 @@
             android:layout_height="match_parent"
             android:layout_above="@+id/rlBottom">
             <RelativeLayout
+                android:id="@+id/rlUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="10dp">
@@ -95,6 +96,12 @@
                     android:background="@color/gray_e"
                     android:layout_marginTop="10dp"/>
             </RelativeLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvMedicine"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/rlUser"/>
+
         </RelativeLayout>
 
         <RelativeLayout
