@@ -6,11 +6,119 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.UpcomingAppointmentActivity">
 
+
+            <RelativeLayout
+                android:id="@+id/ap"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@drawable/layout_bg4">
+                <ImageView
+                    android:id="@+id/imgBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_centerVertical="true"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_back"/>
+                <TextView
+                    android:id="@+id/txtTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:text="Upcoming"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/size_20" />
+                <ImageView
+                    android:id="@+id/imgNotification"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/imgSearch"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/icf_notifications_bell" />
+
+                <ImageView
+                    android:id="@+id/imgSearch"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/icf_search" />
+            </RelativeLayout>
+
     <LinearLayout
+        android:id="@+id/llCal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/layout_bg4"
+        android:layout_below="@+id/ap"
         android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="@dimen/size_22"
+            android:textColor="@color/white"
+            android:text="2017"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/tvMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/size_34"
+            android:textColor="@color/white"
+            android:text="November"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true">
+                <TextView
+                    android:id="@+id/tvNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/size_12"
+                    android:drawableRight="@drawable/ic_keyboard_right"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:text="Next"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:id="@+id/tvPrevious"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/tvNext"
+                    android:layout_marginRight="20dp"
+                    android:textSize="@dimen/size_12"
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/ic_keyboard_left"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:text="Previous"
+                    android:textColor="@color/white"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
 
     <com.github.sundeepk.compactcalendarview.CompactCalendarView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -20,13 +128,27 @@
         android:paddingLeft="10dp"
         android:layout_height="250dp"
         app:compactCalendarTargetHeight="250dp"
-        app:compactCalendarTextSize="12sp"
+        app:compactCalendarTextSize="14sp"
         app:compactCalendarBackgroundColor="#00E95451"
         app:compactCalendarTextColor="#fff"
-        app:compactCalendarCurrentSelectedDayBackgroundColor="#E57373"
-        app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
-        app:compactCalendarMultiEventIndicatorColor="#fff"
-        />
+        app:compactCalendarCurrentSelectedDayBackgroundColor="#3FA845"
+        app:compactCalendarCurrentDayBackgroundColor="#B261C467"
+        app:compactCalendarMultiEventIndicatorColor="#fff"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@+id/llCal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:padding="10dp"/>
 
     </LinearLayout>
 
