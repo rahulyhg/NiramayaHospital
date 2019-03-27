@@ -12,7 +12,10 @@ import android.widget.TextView;
 import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.ui.fragment.DashboardFragment;
+import com.infobite.niramayahospital.ui.fragment.DutiesFragment;
 import com.infobite.niramayahospital.ui.fragment.NotificationFragment;
+import com.infobite.niramayahospital.ui.fragment.list.PatientListMainFragment;
+import com.infobite.niramayahospital.ui.fragment.profile_details.ProfileMainFragment;
 import com.infobite.niramayahospital.utils.FragmentUtils;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
@@ -20,7 +23,7 @@ import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static TextView txtTitle;
-    public static ImageView imgSearch, imgSort, imgNotification;
+    public static ImageView imgSearch, imgSort, imgNotification, imgEditProfile;
     private SlidingRootNav slidingRootNav;
     private FragmentUtils fragmentUtils;
     private FragmentManager fragmentManager;
@@ -35,6 +38,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     private void init(Bundle savedInstanceState) {
         imgNotification = findViewById(R.id.imgNotification);
+        imgEditProfile = findViewById(R.id.imgEditProfile);
         imgSearch = findViewById(R.id.imgSearch);
         imgSort = findViewById(R.id.imgSort);
         txtTitle = findViewById(R.id.txtTitle);
@@ -72,7 +76,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Fragment BedFragment = fragmentManager.findFragmentByTag(Constant.BedFragment);
         Fragment DashboardFragment = fragmentManager.findFragmentByTag(Constant.DashboardFragment);
         Fragment NotificationFragment= fragmentManager.findFragmentByTag(Constant.NotificationFragment);
+        Fragment PatientFragment= fragmentManager.findFragmentByTag(Constant.PatientFragment);
+        Fragment DutiesFragment= fragmentManager.findFragmentByTag(Constant.DutiesFragment);
         Fragment InvoiceFragment = fragmentManager.findFragmentByTag(Constant.InvoiceFragment);
+        Fragment ProfileFragment = fragmentManager.findFragmentByTag(Constant.ProfileFragment);
         Fragment PrescriptionFragment = fragmentManager.findFragmentByTag(Constant.PrescriptionFragment);
         Fragment ReportFragment = fragmentManager.findFragmentByTag(Constant.ReportsFragment);
 
@@ -84,21 +91,21 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.txtPatients:
-                txtTitle.setText("Patients");
-                if (PrescriptionFragment == null) {
-                    //fragmentUtils.replaceFragment(new PrescriptionsFragment(), Constant.PrescriptionFragment, R.id.home_frame);
+                txtTitle.setText("Patient List");
+                if (PatientFragment == null) {
+                    fragmentUtils.replaceFragment(new PatientListMainFragment(), Constant.PatientFragment, R.id.home_frame);
                 }
                 break;
             case R.id.txtDuties:
                 txtTitle.setText("Duties");
-                if (ReportFragment == null) {
-                    //fragmentUtils.replaceFragment(new ReportFragment(), Constant.ReportsFragment, R.id.home_frame);
+                if (DutiesFragment == null) {
+                    fragmentUtils.replaceFragment(new DutiesFragment(), Constant.DutiesFragment, R.id.home_frame);
                 }
                 break;
             case R.id.txtProfile:
                 txtTitle.setText("Profile");
-                if (InvoiceFragment == null) {
-                    //fragmentUtils.replaceFragment(new InvoiceFragment(), Constant.InvoiceFragment, R.id.home_frame);
+                if (ProfileFragment == null) {
+                    fragmentUtils.replaceFragment(new ProfileMainFragment(), Constant.ProfileFragment, R.id.home_frame);
                 }
                 break;
             case R.id.txtSettings:

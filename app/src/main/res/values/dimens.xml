@@ -9,4 +9,8 @@
     <dimen name="text_dim_14">14sp</dimen>
     <dimen name="text_dim_12">12sp</dimen>
     <dimen name="text_dim_10">10sp</dimen>
+    <dimen name="size_24">24sp</dimen>
+    <dimen name="size_6">6sp</dimen>
+    <dimen name="size_8">8sp</dimen>
+    <dimen name="size_22">22sp</dimen>
 </resources>

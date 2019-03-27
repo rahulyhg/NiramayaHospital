@@ -15,7 +15,7 @@ import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgNotifica
 import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSearch;
 import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
 
-public class NotificationFragment extends BaseFragment implements View.OnClickListener {
+public class DutiesFragment extends BaseFragment implements View.OnClickListener {
 
     private View rootView;
 
@@ -23,14 +23,14 @@ public class NotificationFragment extends BaseFragment implements View.OnClickLi
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_notification, container, false);
+        rootView = inflater.inflate(R.layout.activity_schedule, container, false);
         init();
         return rootView;
     }
 
     private void init() {
         imgSearch.setVisibility(View.GONE);
-        imgNotification.setVisibility(View.GONE);
+        imgNotification.setVisibility(View.VISIBLE);
         imgEditProfile.setVisibility(View.GONE);
         imgSort.setVisibility(View.GONE);
 

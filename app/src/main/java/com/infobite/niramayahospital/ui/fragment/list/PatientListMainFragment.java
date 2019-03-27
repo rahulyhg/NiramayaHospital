@@ -15,6 +15,12 @@ import com.infobite.niramayahospital.ui.fragment.list.AddPrescriptionFragment;
 import com.infobite.niramayahospital.ui.fragment.list.NurseNotesFragment;
 import com.infobite.niramayahospital.ui.fragment.list.PastHistoryFragment;
 import com.infobite.niramayahospital.utils.BaseFragment;
+import com.infobite.niramayahospital.utils.ConnectionDetector;
+
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgEditProfile;
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgNotification;
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSearch;
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
 
 public class PatientListMainFragment extends BaseFragment implements View.OnClickListener {
 
@@ -30,6 +36,15 @@ public class PatientListMainFragment extends BaseFragment implements View.OnClic
     }
 
     private void init(Bundle savedInstanceState) {
+
+        imgSearch.setVisibility(View.GONE);
+        imgSort.setVisibility(View.GONE);
+        imgNotification.setVisibility(View.VISIBLE);
+        imgEditProfile.setVisibility(View.GONE);
+
+        activity = getActivity();
+        mContext = getActivity();
+        cd = new ConnectionDetector(mContext);
 
         rootView.findViewById(R.id.tvAddPrescription).setOnClickListener(this);
         rootView.findViewById(R.id.tvVieweReports).setOnClickListener(this);
