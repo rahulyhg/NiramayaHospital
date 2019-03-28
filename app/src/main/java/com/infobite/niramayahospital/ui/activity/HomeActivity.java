@@ -1,5 +1,6 @@
 package com.infobite.niramayahospital.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -27,7 +28,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private SlidingRootNav slidingRootNav;
     private FragmentUtils fragmentUtils;
     private FragmentManager fragmentManager;
-
+   public  Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +48,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         fragmentUtils = new FragmentUtils(fragmentManager);
         fragmentUtils.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         slidingRootNav = new SlidingRootNavBuilder(this)
                 .withToolbarMenuToggle(toolbar)
@@ -58,6 +59,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 .inject();
 
         clickListener();
+    }
+    private void getIntentData(){
+        if (getIntent() != null){
+            Intent intent = getIntent();
+            String strFrom = intent.getStringExtra("from");
+            if (strFrom.equals("Prescription")){
+            }
+        }
     }
 
     private void clickListener() {

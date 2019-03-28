@@ -1,7 +1,9 @@
 package com.infobite.niramayahospital.ui.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Environment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -39,6 +41,7 @@ import io.fabric.sdk.android.Fabric;
 
 public class PrescriptionActivity extends BaseActivity implements View.OnClickListener {
 
+    public static FragmentManager fragmentManager;
     private DrawerLayout drawer;
     private Toolbar toolbar;
     private RelativeLayout leftDrawer;
@@ -49,7 +52,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
     private ArrayList<CreatePrescriptionModel> prescriptionList;
     private PrecriptionListAdapter prescriptionAdapter;
 
-    String[] arr = { "completenate", "cometriq","companion","cpmpleat", "compazine", "complera"};
+    String[] arr = {"completenate", "cometriq", "companion", "cpmpleat", "compazine", "complera"};
     private AutoCompleteTextView autoCompleteSearch;
     private EditText etDose, etTest;
 
@@ -93,12 +96,13 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
         tvClearDose.setOnClickListener(this);
         tvClearMedicine.setOnClickListener(this);
 
-        ((ImageView)findViewById(R.id.ivAddNew)).setOnClickListener(this);
-        ((ImageView)findViewById(R.id.ivSearch)).setOnClickListener(this);
+        ((ImageView) findViewById(R.id.ivAddNew)).setOnClickListener(this);
+        ((ImageView) findViewById(R.id.ivSearch)).setOnClickListener(this);
 
         /*((Button)findViewById(R.id.btnAdd)).setOnClickListener(this);*/
-        ((Button)findViewById(R.id.btnAddMedicine)).setOnClickListener(this);
-        ((Button)findViewById(R.id.btnAddTest)).setOnClickListener(this);
+        ((Button) findViewById(R.id.btnAddMedicine)).setOnClickListener(this);
+        ((Button) findViewById(R.id.btnAddTest)).setOnClickListener(this);
+        ((ImageView) findViewById(R.id.imgEditPrescription)).setOnClickListener(this);
 
         prescriptionList = new ArrayList<>();
 
@@ -113,8 +117,9 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
         rvMedicine.setLayoutManager(layoutManager);
         rvMedicine.setAdapter(prescriptionAdapter);
         prescriptionAdapter.notifyDataSetChanged();
-        if (prescriptionList.size() >0){
-            ((CardView)findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+        if (prescriptionList.size() > 0) {
+            ((CardView) findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+            ((ImageView) findViewById(R.id.imgEditPrescription)).setVisibility(View.VISIBLE);
         }
 
 
@@ -136,35 +141,35 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
         cDose.setBackgroundColor(Color.WHITE);
         llDose.addView(cDose, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
-        ((Button)findViewById(R.id.btnAdd)).setOnClickListener(new View.OnClickListener() {
+        ((Button) findViewById(R.id.btnAdd)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean isMedicine = false;
                 boolean isDose = false;
-                doseStoredPath = DIRECTORY + "Dose"+System.currentTimeMillis() + ".png";
-                medicineStoredPath = DIRECTORY + "Medicine"+System.currentTimeMillis() + ".png";
-                if(cMedicine.save(llMedicine, medicineStoredPath)){
+                doseStoredPath = DIRECTORY + "Dose" + System.currentTimeMillis() + ".png";
+                medicineStoredPath = DIRECTORY + "Medicine" + System.currentTimeMillis() + ".png";
+                if (cMedicine.save(llMedicine, medicineStoredPath)) {
                     isMedicine = true;
                 }
-                if(cDose.save(llDose, doseStoredPath)){
+                if (cDose.save(llDose, doseStoredPath)) {
                     isDose = true;
                 }
-                if (isMedicine && isDose){
+                if (isMedicine && isDose) {
                     CreatePrescriptionModel prescriptionModel = new CreatePrescriptionModel();
                     prescriptionModel.setType("CANVAS");
                     prescriptionModel.setMedicineImagePath(medicineStoredPath);
                     prescriptionModel.setDoseImagePath(doseStoredPath);
                     prescriptionList.add(prescriptionModel);
                     prescriptionAdapter.notifyDataSetChanged();
-                    if (prescriptionList.size() >0){
-                        ((CardView)findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+                    if (prescriptionList.size() > 0) {
+                        ((CardView) findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+                        ((ImageView) findViewById(R.id.imgEditPrescription)).setVisibility(View.VISIBLE);
                     }
                     drawer.closeDrawer(Gravity.START);
                     cMedicine.clear();
                     cDose.clear();
                     //Toast.makeText(mContext, "Success", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
                     showToast("Please try again...");
                 }
             }
@@ -172,19 +177,15 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
 
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (this,R.layout.row_auto_complete_text, arr);
+                (this, R.layout.row_auto_complete_text, arr);
 
         autoCompleteSearch.setThreshold(2);
         autoCompleteSearch.setAdapter(adapter);
-
-
-
-
     }
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.ivAddNew:
                 drawer.openDrawer(Gravity.START);
                 break;
@@ -204,22 +205,28 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
             case R.id.tvClearDose:
                 cDose.clear();
                 break;
+            case R.id.imgEditPrescription:
+                Intent intent = new Intent(mContext, HomeActivity.class);
+                intent.putExtra("from", "Prescription");
+                startActivity(intent);
+                break;
 
         }
     }
 
     private void initAddTest() {
         String test = etTest.getText().toString().trim();
-        if (test.isEmpty()){
+        if (test.isEmpty()) {
             showToast("First enter a test.");
-        }else{
+        } else {
             CreatePrescriptionModel prescriptionModel = new CreatePrescriptionModel();
             prescriptionModel.setType("TEST");
             prescriptionModel.setTest(test);
             prescriptionList.add(prescriptionModel);
             prescriptionAdapter.notifyDataSetChanged();
-            if (prescriptionList.size() >0){
-                ((CardView)findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+            if (prescriptionList.size() > 0) {
+                ((CardView) findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+                ((ImageView) findViewById(R.id.imgEditPrescription)).setVisibility(View.VISIBLE);
             }
             etTest.setText("");
             drawer.closeDrawer(Gravity.END);
@@ -229,19 +236,20 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
     private void initAddMedicine() {
         String medicine = autoCompleteSearch.getText().toString().trim();
         String dose = etDose.getText().toString().trim();
-        if (medicine.isEmpty()){
+        if (medicine.isEmpty()) {
             showToast("First enter a medicine name.");
-        }else if (dose.isEmpty()){
+        } else if (dose.isEmpty()) {
             showToast("Please add dose.");
-        }else{
+        } else {
             CreatePrescriptionModel prescriptionModel = new CreatePrescriptionModel();
             prescriptionModel.setType("TEXT");
             prescriptionModel.setMedicine(medicine);
             prescriptionModel.setDose(dose);
             prescriptionList.add(prescriptionModel);
             prescriptionAdapter.notifyDataSetChanged();
-            if (prescriptionList.size() >0){
-                ((CardView)findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+            if (prescriptionList.size() > 0) {
+                ((CardView) findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+                ((ImageView) findViewById(R.id.imgEditPrescription)).setVisibility(View.VISIBLE);
             }
             autoCompleteSearch.setText("");
             etDose.setText("");
@@ -249,7 +257,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
         }
     }
 
-    private void showToast(String msg){
+    private void showToast(String msg) {
         Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
     }
 }
