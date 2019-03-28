@@ -19,6 +19,8 @@ import com.infobite.niramayahospital.utils.ConnectionDetector;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgEditProfile;
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgNotification;
 import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSearch;
 import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
 
@@ -39,7 +41,8 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
     private void init() {
 
         tvUpcomingAppointment = rootView.findViewById(R.id.tvUpcomingAppointment);
-
+        imgNotification.setVisibility(View.VISIBLE);
+        imgEditProfile.setVisibility(View.GONE);
         imgSearch.setVisibility(View.VISIBLE);
         imgSort.setVisibility(View.GONE);
 
