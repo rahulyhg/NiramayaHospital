@@ -1,13 +1,9 @@
-package com.infobite.niramayahospital.ui.fragment;
+package com.infobite.niramayahospital.ui.doctor.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,8 +16,8 @@ import com.infobite.niramayahospital.utils.ConnectionDetector;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSearch;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgSearch;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgSort;
 
 public class HomeFragment extends BaseFragment implements View.OnClickListener {
 

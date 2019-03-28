@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.fragment.profile_details;
+package com.infobite.niramayahospital.ui.doctor.fragment.profile_details;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.utils.BaseFragment;
 
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgEditProfile;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgNotification;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSearch;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgEditProfile;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgNotification;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgSearch;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgSort;
 
 public class ServiceDetailFragment  extends BaseFragment {
     private View rootView;

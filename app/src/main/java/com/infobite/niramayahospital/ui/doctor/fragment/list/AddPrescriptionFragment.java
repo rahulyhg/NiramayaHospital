@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.fragment.list;
+package com.infobite.niramayahospital.ui.doctor.fragment.list;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.infobite.niramayahospital.R;
-import com.infobite.niramayahospital.ui.activity.PrescriptionActivity;
+import com.infobite.niramayahospital.ui.doctor.activity.PrescriptionActivity;
 import com.infobite.niramayahospital.utils.BaseFragment;
 
 public class AddPrescriptionFragment extends BaseFragment {

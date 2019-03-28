@@ -3,9 +3,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
     tools:context=".ui.BypassActivity">
+
+    <RelativeLayout
+        android:id="@+id/ap"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/layout_bg4">
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Niramaya Hospital"
+            android:textColor="@color/white"
+            android:textSize="@dimen/size_20" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
 
     <Button
         android:id="@+id/btnDoctor"
@@ -118,5 +140,7 @@
         android:textColor="@color/white"
         android:text="Admin"
         android:textAllCaps="false"/>
+
+    </LinearLayout>
 
 </LinearLayout>

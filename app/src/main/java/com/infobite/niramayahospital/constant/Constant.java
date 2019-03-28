@@ -20,8 +20,10 @@ public class Constant {
     public static final String LoginFragment = "LoginFragment";
     public static final String Verification_Fragment = "Verification_Fragment";
     public static final String ProfileFragment = "Profile_Fragment";
+    public static final String ProfileMainFragment = "ProfileMainFragment";
     public static final String ReportsFragment = "ReportsFragment";
     public static final String PatientFragment = "PatientFragment";
+    public static final String PatientDetailFragment = "PatientDetailFragment";
     public static final String DutiesFragment = "DutiesFragment";
     public static final String InvoiceFragment = "InvoiceFragment";
     public static final String BedFragment = "BedFragment";

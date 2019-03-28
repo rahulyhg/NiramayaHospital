@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.fragment;
+package com.infobite.niramayahospital.ui.doctor.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.infobite.niramayahospital.R;
-import com.infobite.niramayahospital.ui.activity.HomeActivity;
+import com.infobite.niramayahospital.ui.doctor.activity.HomeActivity;
 import com.infobite.niramayahospital.utils.BaseFragment;
 
 

@@ -1,28 +1,22 @@
-package com.infobite.niramayahospital.ui.fragment;
+package com.infobite.niramayahospital.ui.doctor.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.infobite.niramayahospital.R;
-import com.infobite.niramayahospital.ui.activity.PrescriptionActivity;
-import com.infobite.niramayahospital.ui.activity.UpcomingAppointmentActivity;
+import com.infobite.niramayahospital.ui.doctor.activity.UpcomingAppointmentActivity;
 import com.infobite.niramayahospital.utils.BaseFragment;
 import com.infobite.niramayahospital.utils.ConnectionDetector;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgEditProfile;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgNotification;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSearch;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgEditProfile;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgNotification;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgSearch;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgSort;
 
 public class DashboardFragment extends BaseFragment implements View.OnClickListener {
 

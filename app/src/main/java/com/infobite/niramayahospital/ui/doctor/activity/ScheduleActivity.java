@@ -1,6 +1,5 @@
-package com.infobite.niramayahospital.ui.activity;
+package com.infobite.niramayahospital.ui.doctor.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;

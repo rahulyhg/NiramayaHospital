@@ -3,11 +3,10 @@ package com.infobite.niramayahospital.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.PagerAdapter;
 
-import com.infobite.niramayahospital.ui.fragment.profile_details.ContactFragment;
-import com.infobite.niramayahospital.ui.fragment.profile_details.PersonalDetailFragment;
-import com.infobite.niramayahospital.ui.fragment.profile_details.ServiceDetailFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.profile_details.ContactFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.profile_details.PersonalDetailFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.profile_details.ServiceDetailFragment;
 
 public class ProfilePagerAdapter extends FragmentPagerAdapter {
     private int COUNT = 3;

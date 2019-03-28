@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.activity;
+package com.infobite.niramayahospital.ui.doctor.activity;
 
 import android.Manifest;
 import android.content.Intent;

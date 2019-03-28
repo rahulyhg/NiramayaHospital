@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.activity;
+package com.infobite.niramayahospital.ui.doctor.activity;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 
 import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.constant.Constant;
-import com.infobite.niramayahospital.ui.fragment.LoginFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.LoginFragment;
 import com.infobite.niramayahospital.utils.BaseActivity;
 
 

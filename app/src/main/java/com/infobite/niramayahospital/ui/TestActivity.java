@@ -4,9 +4,7 @@ import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 
 import com.infobite.niramayahospital.R;
-import com.infobite.niramayahospital.ui.fragment.PatientListFragment;
-import com.infobite.niramayahospital.ui.fragment.list.PatientListMainFragment;
-import com.infobite.niramayahospital.ui.fragment.profile_details.ContactFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.PatientListFragment;
 import com.infobite.niramayahospital.utils.BaseActivity;
 import com.infobite.niramayahospital.utils.FragmentUtils;
 

@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.activity;
+package com.infobite.niramayahospital.ui.doctor.activity;
 
 import android.os.Bundle;
 import android.view.View;

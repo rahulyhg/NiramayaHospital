@@ -1,6 +1,5 @@
 package com.infobite.niramayahospital.ui;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,12 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.infobite.niramayahospital.R;
-import com.infobite.niramayahospital.retrofit.RetrofitService;
-import com.infobite.niramayahospital.retrofit.WebResponse;
-import com.infobite.niramayahospital.ui.activity.HomeActivity;
 import com.infobite.niramayahospital.utils.BaseActivity;
-
-import retrofit2.Response;
 
 public class SignInActivity extends BaseActivity {
 

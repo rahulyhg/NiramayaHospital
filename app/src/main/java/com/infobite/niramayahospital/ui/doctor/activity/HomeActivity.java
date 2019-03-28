@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.activity;
+package com.infobite.niramayahospital.ui.doctor.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,11 +12,12 @@ import android.widget.TextView;
 
 import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.constant.Constant;
-import com.infobite.niramayahospital.ui.fragment.DashboardFragment;
-import com.infobite.niramayahospital.ui.fragment.DutiesFragment;
-import com.infobite.niramayahospital.ui.fragment.NotificationFragment;
-import com.infobite.niramayahospital.ui.fragment.list.PatientListMainFragment;
-import com.infobite.niramayahospital.ui.fragment.profile_details.ProfileMainFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.DashboardFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.DutiesFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.NotificationFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.PatientListFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.list.PatientListMainFragment;
+import com.infobite.niramayahospital.ui.doctor.fragment.profile_details.ProfileMainFragment;
 import com.infobite.niramayahospital.utils.FragmentUtils;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
@@ -26,8 +27,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public static TextView txtTitle;
     public static ImageView imgSearch, imgSort, imgNotification, imgEditProfile;
     private SlidingRootNav slidingRootNav;
-    private FragmentUtils fragmentUtils;
-    private FragmentManager fragmentManager;
+    public static FragmentUtils fragmentUtils;
+    public static FragmentManager fragmentManager;
    public  Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Fragment DutiesFragment = fragmentManager.findFragmentByTag(Constant.DutiesFragment);
         Fragment InvoiceFragment = fragmentManager.findFragmentByTag(Constant.InvoiceFragment);
         Fragment ProfileFragment = fragmentManager.findFragmentByTag(Constant.ProfileFragment);
+        Fragment ProfileMainFragment = fragmentManager.findFragmentByTag(Constant.ProfileMainFragment);
         Fragment PrescriptionFragment = fragmentManager.findFragmentByTag(Constant.PrescriptionFragment);
         Fragment ReportFragment = fragmentManager.findFragmentByTag(Constant.ReportsFragment);
 
@@ -102,9 +104,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.txtPatients:
                 txtTitle.setText("Patient List");
-                if (PatientFragment == null) {
-                    fragmentUtils.replaceFragment(new PatientListMainFragment(), Constant.PatientFragment, R.id.home_frame);
-                }
+                //if (PatientFragment == null) {
+                    fragmentUtils.replaceFragment(new PatientListFragment(), Constant.PatientFragment, R.id.home_frame);
+                //}
                 break;
             case R.id.txtDuties:
                 txtTitle.setText("Duties");
@@ -130,52 +132,42 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                     fragmentUtils.replaceFragment(new NotificationFragment(), Constant.NotificationFragment, R.id.home_frame);
                 }
                 break;
-            case R.id.imgNotification:
-                txtTitle.setText("Notification");
-                if (NotificationFragment == null) {
-                    fragmentUtils.replaceFragment(new NotificationFragment(), Constant.NotificationFragment, R.id.home_frame);
-                }
-                break;
-            /*case R.id.txtBloodDonation:
-                txtTitle.setText("Blood Donation");
-                if (BloodDonationFragment == null) {
-                    //fragmentUtils.replaceFragment(new BloodDonationFragment(), Constant.BloodDonationFragment, R.id.home_frame);
-                }
-                break;
-            case R.id.txtDocuments:
-                break;
-            case R.id.txtSettings:
-                break;
-            case R.id.txtAddUser:
-                txtTitle.setText("Add User");
-                if (AddUserFragment == null) {
-                    //fragmentUtils.replaceFragment(new AddUserFragment(), Constant.AddUserFragment, R.id.home_frame);
-                }
-                break;*/
         }
         slidingRootNav.closeMenu();
     }
 
     @Override
     public void onBackPressed() {
-        Fragment AddUserFragment = fragmentManager.findFragmentByTag(Constant.AddUserFragment);
-        Fragment BedFragment = fragmentManager.findFragmentByTag(Constant.BedFragment);
+        Fragment DutiesFragment = fragmentManager.findFragmentByTag(Constant.DutiesFragment);
         Fragment DashboardFragment = fragmentManager.findFragmentByTag(Constant.DashboardFragment);
-        Fragment InvoiceFragment = fragmentManager.findFragmentByTag(Constant.InvoiceFragment);
-        Fragment PrescriptionFragment = fragmentManager.findFragmentByTag(Constant.PrescriptionFragment);
-        Fragment ReportFragment = fragmentManager.findFragmentByTag(Constant.ReportsFragment);
+        Fragment ProfileFragment = fragmentManager.findFragmentByTag(Constant.ProfileFragment);
+        Fragment ProfileMainFragment = fragmentManager.findFragmentByTag(Constant.ProfileMainFragment);
+        Fragment NotificationFragment = fragmentManager.findFragmentByTag(Constant.NotificationFragment);
+        Fragment SettingsFragment = fragmentManager.findFragmentByTag(Constant.SettingsFragment);
+        Fragment PatientFragment = fragmentManager.findFragmentByTag(Constant.PatientFragment);
+        Fragment PatientDetailFragment = fragmentManager.findFragmentByTag(Constant.PatientDetailFragment);
 
         if (DashboardFragment != null) {
             finish();
-        } else if (PrescriptionFragment != null) {
+        } else if (PatientDetailFragment != null) {
+            txtTitle.setText("Patient List");
+            fragmentUtils.replaceFragment(new PatientListFragment(), Constant.PatientFragment, R.id.home_frame);
+        } else if (NotificationFragment != null) {
+            txtTitle.setText("Dashboard");
             fragmentUtils.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
-        } else if (ReportFragment != null) {
+        } else if (SettingsFragment != null) {
+            txtTitle.setText("Dashboard");
             fragmentUtils.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
-        } else if (InvoiceFragment != null) {
+        } else if (ProfileFragment != null) {
+            txtTitle.setText("Dashboard");
             fragmentUtils.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
-        } else if (BedFragment != null) {
+        } else if (DutiesFragment != null) {
+            txtTitle.setText("Dashboard");
             fragmentUtils.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
-        } else {
+        } else if (PatientFragment != null) {
+            txtTitle.setText("Dashboard");
+            fragmentUtils.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
+        }else {
             finish();
         }
     }

@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.fragment.list;
+package com.infobite.niramayahospital.ui.doctor.fragment.list;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,16 +11,14 @@ import android.widget.TextView;
 
 import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.constant.Constant;
-import com.infobite.niramayahospital.ui.fragment.list.AddPrescriptionFragment;
-import com.infobite.niramayahospital.ui.fragment.list.NurseNotesFragment;
-import com.infobite.niramayahospital.ui.fragment.list.PastHistoryFragment;
 import com.infobite.niramayahospital.utils.BaseFragment;
 import com.infobite.niramayahospital.utils.ConnectionDetector;
 
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgEditProfile;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgNotification;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSearch;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.fragmentUtils;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgEditProfile;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgNotification;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgSearch;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgSort;
 
 public class PatientListMainFragment extends BaseFragment implements View.OnClickListener {
 
@@ -58,9 +56,7 @@ public class PatientListMainFragment extends BaseFragment implements View.OnClic
     }
 
     private void replaceFragment(Fragment fragment, String tag) {
-        fragmentManager.beginTransaction()
-                .replace(R.id.framePatientListFragment, fragment, tag)
-                .commit();
+        fragmentUtils.replaceFragment(fragment, Constant.PatientDetailFragment, R.id.framePatientListFragment);
     }
 
     @Override

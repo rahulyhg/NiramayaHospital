@@ -5,6 +5,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.infobite.niramayahospital.R;
@@ -15,10 +17,12 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
 
     private List<String> patientLIst;
     private Context mContext;
+    private View.OnClickListener listener;
 
-    public PatientListAdapter(List<String> patientLIst, Context mContext) {
+    public PatientListAdapter(List<String> patientLIst, Context mContext, View.OnClickListener listener) {
         this.patientLIst = patientLIst;
         this.mContext = mContext;
+        this.listener = listener;
     }
 
     @Override
@@ -30,7 +34,17 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
+        if (position==0){
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT);
+            params.setMargins(36, 72, 36, 36);
+            holder.rlMain.setLayoutParams(params);
 
+            holder.llUserContent.setTag(position);
+            holder.llUserContent.setOnClickListener(listener);
+
+        }
     }
 
     @Override
@@ -40,6 +54,7 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView patientName, patientId, nameAlphabate;
+        LinearLayout rlMain, llUserContent;
 
         public MyViewHolder(View view) {
             super(view);
@@ -47,6 +62,8 @@ public class PatientListAdapter extends RecyclerView.Adapter<PatientListAdapter.
             patientName = view.findViewById(R.id.tvPatientNameList);
             patientId = view.findViewById(R.id.tvPatientId);
             nameAlphabate = view.findViewById(R.id.tvAlphabate);
+            rlMain = view.findViewById(R.id.rlMain);
+            llUserContent = view.findViewById(R.id.llUserContent);
         }
     }
 

@@ -1,4 +1,4 @@
-package com.infobite.niramayahospital.ui.fragment.profile_details;
+package com.infobite.niramayahospital.ui.doctor.fragment.profile_details;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -16,16 +16,16 @@ import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.utils.BaseFragment;
 import com.infobite.niramayahospital.utils.ConnectionDetector;
 
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgEditProfile;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgNotification;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSearch;
-import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.fragmentUtils;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgEditProfile;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgNotification;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgSearch;
+import static com.infobite.niramayahospital.ui.doctor.activity.HomeActivity.imgSort;
 
 public class ProfileMainFragment extends BaseFragment implements View.OnClickListener {
     private View rootView;
     private ViewPager viewPager;
     private ProfilePagerAdapter profilePagerAdapter;
-    public static FragmentManager fragmentManager;
 
     @Nullable
     @Override
@@ -56,15 +56,14 @@ public class ProfileMainFragment extends BaseFragment implements View.OnClickLis
         rootView.findViewById(R.id.tvPersonalDetails).setOnClickListener(this);
         rootView.findViewById(R.id.tvServiceDetails).setOnClickListener(this);
 
-        fragmentManager = getFragmentManager();
         if (savedInstanceState == null) {
             replaceFragment(new ContactFragment(), Constant.ContactFragment);
         }
     }
     private void replaceFragment(Fragment fragment,String tag){
-        fragmentManager.beginTransaction()
-                .replace(R.id.frameProfileFragment, fragment, tag)
-                .commit();
+        fragmentUtils.replaceFragment(fragment, Constant.ProfileMainFragment, R.id.frameProfileFragment);
+
+        //fragmentUtils.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
     }
 
     @Override
