@@ -3,7 +3,6 @@ package com.infobite.niramayahospital.ui.doctor.fragment.profile_details;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,10 +35,6 @@ public class ProfileMainFragment extends BaseFragment implements View.OnClickLis
     }
 
     private void init(Bundle savedInstanceState) {
-  /*   viewPager = rootView.findViewById(R.id.viewPagerProfileFragment);
-     if (viewPager != null){
-        profilePagerAdapter = new ProfilePagerAdapter(getChildFragmentManager());
-        viewPager.setAdapter(profilePagerAdapter);*/
 
             imgSearch.setVisibility(View.GONE);
             imgSort.setVisibility(View.GONE);
@@ -55,6 +50,7 @@ public class ProfileMainFragment extends BaseFragment implements View.OnClickLis
         rootView.findViewById(R.id.tvContactDetails).setOnClickListener(this);
         rootView.findViewById(R.id.tvPersonalDetails).setOnClickListener(this);
         rootView.findViewById(R.id.tvServiceDetails).setOnClickListener(this);
+        rootView.findViewById(R.id.llDoctorProfile).setOnClickListener(this);
 
         if (savedInstanceState == null) {
             replaceFragment(new ContactFragment(), Constant.ContactFragment);
@@ -94,7 +90,9 @@ public class ProfileMainFragment extends BaseFragment implements View.OnClickLis
                 ((TextView)rootView.findViewById(R.id.tvPersonalDetails)).setBackgroundColor(getResources().getColor(R.color.gray_i));
                 ((TextView)rootView.findViewById(R.id.tvServiceDetails)).setBackgroundColor(getResources().getColor(R.color.gray_i));
                 break;
-
+                case R.id.llDoctorProfile:
+                //    startActivity(new Intent(mContext, DoctorProfileActivity.class));
+                    break;
         }
     }
 }

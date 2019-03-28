@@ -55,7 +55,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity android:name=".ui.doctor.activity.LoginActivity" />
+        <activity android:name=".ui.doctor.activity.DoctorProfileActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
