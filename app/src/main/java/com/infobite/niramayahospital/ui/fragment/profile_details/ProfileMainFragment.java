@@ -1,5 +1,6 @@
 package com.infobite.niramayahospital.ui.fragment.profile_details;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.adapter.ProfilePagerAdapter;
 import com.infobite.niramayahospital.constant.Constant;
+import com.infobite.niramayahospital.ui.activity.DoctorProfileActivity;
 import com.infobite.niramayahospital.utils.BaseFragment;
 import com.infobite.niramayahospital.utils.ConnectionDetector;
 
@@ -36,10 +38,6 @@ public class ProfileMainFragment extends BaseFragment implements View.OnClickLis
     }
 
     private void init(Bundle savedInstanceState) {
-  /*   viewPager = rootView.findViewById(R.id.viewPagerProfileFragment);
-     if (viewPager != null){
-        profilePagerAdapter = new ProfilePagerAdapter(getChildFragmentManager());
-        viewPager.setAdapter(profilePagerAdapter);*/
 
             imgSearch.setVisibility(View.GONE);
             imgSort.setVisibility(View.GONE);
@@ -55,6 +53,7 @@ public class ProfileMainFragment extends BaseFragment implements View.OnClickLis
         rootView.findViewById(R.id.tvContactDetails).setOnClickListener(this);
         rootView.findViewById(R.id.tvPersonalDetails).setOnClickListener(this);
         rootView.findViewById(R.id.tvServiceDetails).setOnClickListener(this);
+        rootView.findViewById(R.id.llDoctorProfile).setOnClickListener(this);
 
         fragmentManager = getFragmentManager();
         if (savedInstanceState == null) {
@@ -95,7 +94,9 @@ public class ProfileMainFragment extends BaseFragment implements View.OnClickLis
                 ((TextView)rootView.findViewById(R.id.tvPersonalDetails)).setBackgroundColor(getResources().getColor(R.color.gray_i));
                 ((TextView)rootView.findViewById(R.id.tvServiceDetails)).setBackgroundColor(getResources().getColor(R.color.gray_i));
                 break;
-
+                case R.id.llDoctorProfile:
+                //    startActivity(new Intent(mContext, DoctorProfileActivity.class));
+                    break;
         }
     }
 }

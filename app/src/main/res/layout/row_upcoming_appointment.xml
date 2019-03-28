@@ -4,7 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <RelativeLayout
         android:id="@+id/rlUpcoming"
         android:layout_width="match_parent"
@@ -99,10 +106,8 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rlUpcoming1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rlUpcoming">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/llUpcoming1"
@@ -191,10 +196,8 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rlUpcoming2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rlUpcoming1">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/llUpcoming2"
@@ -283,10 +286,8 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rlUpcoming3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/rlUpcoming2">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/llUpcoming3"
@@ -374,6 +375,6 @@
         </LinearLayout>
 
     </RelativeLayout>
-
-
+    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>
