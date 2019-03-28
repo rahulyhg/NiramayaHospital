@@ -67,6 +67,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.txtProfile).setOnClickListener(this);
         findViewById(R.id.txtSettings).setOnClickListener(this);
         findViewById(R.id.txtNotification).setOnClickListener(this);
+        findViewById(R.id.imgNotification).setOnClickListener(this);
     }
 
     @Override
@@ -75,9 +76,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         Fragment BloodDonationFragment = fragmentManager.findFragmentByTag(Constant.BloodDonationFragment);
         Fragment BedFragment = fragmentManager.findFragmentByTag(Constant.BedFragment);
         Fragment DashboardFragment = fragmentManager.findFragmentByTag(Constant.DashboardFragment);
-        Fragment NotificationFragment= fragmentManager.findFragmentByTag(Constant.NotificationFragment);
-        Fragment PatientFragment= fragmentManager.findFragmentByTag(Constant.PatientFragment);
-        Fragment DutiesFragment= fragmentManager.findFragmentByTag(Constant.DutiesFragment);
+        Fragment NotificationFragment = fragmentManager.findFragmentByTag(Constant.NotificationFragment);
+        Fragment PatientFragment = fragmentManager.findFragmentByTag(Constant.PatientFragment);
+        Fragment DutiesFragment = fragmentManager.findFragmentByTag(Constant.DutiesFragment);
         Fragment InvoiceFragment = fragmentManager.findFragmentByTag(Constant.InvoiceFragment);
         Fragment ProfileFragment = fragmentManager.findFragmentByTag(Constant.ProfileFragment);
         Fragment PrescriptionFragment = fragmentManager.findFragmentByTag(Constant.PrescriptionFragment);
@@ -115,6 +116,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.txtNotification:
+                txtTitle.setText("Notification");
+                if (NotificationFragment == null) {
+                    fragmentUtils.replaceFragment(new NotificationFragment(), Constant.NotificationFragment, R.id.home_frame);
+                }
+                break;
+            case R.id.imgNotification:
                 txtTitle.setText("Notification");
                 if (NotificationFragment == null) {
                     fragmentUtils.replaceFragment(new NotificationFragment(), Constant.NotificationFragment, R.id.home_frame);

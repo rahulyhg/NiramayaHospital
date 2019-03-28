@@ -34,7 +34,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_weight="6"
                 android:orientation="vertical">
 
@@ -49,6 +48,7 @@
                 <TextView
                     android:id="@+id/tvEndTime"
                     android:layout_width="wrap_content"
+                    android:textColor="@color/gray_f"
                     android:layout_height="wrap_content"
                     android:text="10:00 AM"
                     android:textStyle="normal" />
@@ -128,7 +128,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_weight="6"
                 android:orientation="vertical">
 
@@ -143,6 +142,7 @@
                 <TextView
                     android:id="@+id/tvEndTime1"
                     android:layout_width="wrap_content"
+                    android:textColor="@color/gray_f"
                     android:layout_height="wrap_content"
                     android:text="10:00 AM"
                     android:textStyle="normal" />
@@ -220,7 +220,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_weight="6"
                 android:orientation="vertical">
 
@@ -235,6 +234,7 @@
                 <TextView
                     android:id="@+id/tvEndTime3"
                     android:layout_width="wrap_content"
+                    android:textColor="@color/gray_f"
                     android:layout_height="wrap_content"
                     android:text="10:00 AM"
                     android:textStyle="normal" />
@@ -281,6 +281,7 @@
                 </LinearLayout>
 
                 <View
+                    android:background="@color/gray_i"
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
                     android:layout_below="@id/llUpcoming2"
@@ -311,7 +312,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
                 android:layout_weight="6"
                 android:orientation="vertical">
 
@@ -324,6 +324,7 @@
                     android:textStyle="normal" />
 
                 <TextView
+                    android:textColor="@color/gray_f"
                     android:id="@+id/tvEndTime2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
