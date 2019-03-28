@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.infobite.niramayahospital.R;
+import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.ui.activity.HomeActivity;
 import com.infobite.niramayahospital.utils.ConnectionDetector;
 
@@ -46,12 +47,6 @@ public class LoginFragment extends Fragment implements OnClickListener {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.login_layout, container, false);
 
-        ((Button)view.findViewById(R.id.loginBtn)).setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getActivity(), HomeActivity.class));
-            }
-        });
         //initViews();
         //setListeners();
         return view;
@@ -119,11 +114,15 @@ public class LoginFragment extends Fragment implements OnClickListener {
         switch (v.getId()) {
             case R.id.loginBtn:
                 // checkValidation();
-                /*fragmentManager
+                Fragment frag = new OtpFragment();
+                Bundle args = new Bundle();
+                args.putString("OTP", "111111");
+                frag.setArguments(args);
+                fragmentManager
                         .beginTransaction()
                         .setCustomAnimations(R.anim.right_enter, R.anim.left_out)
-                        .replace(R.id.login_frame, new OtpFragment(),
-                                Constant.Otp_Fragment).commit();*/
+                        .replace(R.id.login_frame, frag,
+                                Constant.Otp_Fragment).commit();
                 break;
         }
 
