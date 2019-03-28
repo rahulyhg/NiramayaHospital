@@ -5,6 +5,7 @@ import android.os.Environment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -112,6 +113,9 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
         rvMedicine.setLayoutManager(layoutManager);
         rvMedicine.setAdapter(prescriptionAdapter);
         prescriptionAdapter.notifyDataSetChanged();
+        if (prescriptionList.size() >0){
+            ((CardView)findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+        }
 
 
         file = new File(Environment.getExternalStorageDirectory(), folder_main);
@@ -152,6 +156,9 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
                     prescriptionModel.setDoseImagePath(doseStoredPath);
                     prescriptionList.add(prescriptionModel);
                     prescriptionAdapter.notifyDataSetChanged();
+                    if (prescriptionList.size() >0){
+                        ((CardView)findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+                    }
                     drawer.closeDrawer(Gravity.START);
                     cMedicine.clear();
                     cDose.clear();
@@ -211,6 +218,9 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
             prescriptionModel.setTest(test);
             prescriptionList.add(prescriptionModel);
             prescriptionAdapter.notifyDataSetChanged();
+            if (prescriptionList.size() >0){
+                ((CardView)findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+            }
             etTest.setText("");
             drawer.closeDrawer(Gravity.END);
         }
@@ -230,6 +240,9 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
             prescriptionModel.setDose(dose);
             prescriptionList.add(prescriptionModel);
             prescriptionAdapter.notifyDataSetChanged();
+            if (prescriptionList.size() >0){
+                ((CardView)findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+            }
             autoCompleteSearch.setText("");
             etDose.setText("");
             drawer.closeDrawer(Gravity.END);

@@ -10,6 +10,11 @@ import android.view.ViewGroup;
 
 import com.infobite.niramayahospital.R;
 
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgEditProfile;
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgNotification;
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSearch;
+import static com.infobite.niramayahospital.ui.activity.HomeActivity.imgSort;
+
 public class PersonalDetailFragment extends Fragment {
     private View rootView;
 
@@ -17,6 +22,16 @@ public class PersonalDetailFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_personal_detail,container,false);
+
+        initViews();
+
         return rootView;
+    }
+
+    private void initViews() {
+        imgSearch.setVisibility(View.GONE);
+        imgSort.setVisibility(View.GONE);
+        imgNotification.setVisibility(View.VISIBLE);
+        imgEditProfile.setVisibility(View.VISIBLE);
     }
 }

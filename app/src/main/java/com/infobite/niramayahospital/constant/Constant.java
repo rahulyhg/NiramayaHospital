@@ -5,17 +5,10 @@ package com.infobite.niramayahospital.constant;
  */
 
 public class Constant {
-    public static final String BASE_URL = "http://codeencrypt.in/must_eat/";
-    public static final String USER_REGISTRATION = "api/user-signup.php";
-    public static final String USER_PROFILE = "api/user-profile.php";
+
+
+    public static final String BASE_URL = "http://niramaya.infobitetechnology.tech/";
     public static final String USER_LOGIN = "api/user-login.php";
-    public static final String VERIFICATION = "api/user-verification.php";
-    public static final String VENDOR_DETAIL = "api/vendor-details.php";
-    public static final String VENDOR_LIST = "api/vendor-list.php";
-    public static final String FOROGOT_PASSWORD = "jain/api/forgot.php";
-    public static final String NOTIFICATION_LIST = "api/select-notification.php";
-    public static final String OFFER_LIST = "api/coupon_list.php";
-    public static final String APP_VERSION = "api/check-version.php";
 
 
     // Fragment constant

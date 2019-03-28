@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ScheduleActivity extends BaseActivity {
+
     private SchedulePatientListAdapter schedulePatientListAdapter;
     private List<String> patientList = new ArrayList<>();
 

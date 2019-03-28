@@ -10,6 +10,7 @@ import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
 import com.infobite.niramayahospital.R;
+import com.infobite.niramayahospital.ui.SignInActivity;
 import com.infobite.niramayahospital.utils.BaseActivity;
 
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(mContext, LoginActivity.class);
+                Intent intent = new Intent(mContext, SignInActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

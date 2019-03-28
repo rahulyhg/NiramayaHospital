@@ -4,6 +4,7 @@ import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 
 import com.infobite.niramayahospital.R;
+import com.infobite.niramayahospital.ui.fragment.PatientListFragment;
 import com.infobite.niramayahospital.ui.fragment.list.PatientListMainFragment;
 import com.infobite.niramayahospital.ui.fragment.profile_details.ContactFragment;
 import com.infobite.niramayahospital.utils.BaseActivity;
@@ -24,7 +25,7 @@ public class TestActivity extends BaseActivity {
         fragmentUtils.replaceFragment(new PatientListMainFragment());*/
         if (savedInstanceState == null) {
             fragmentManager.beginTransaction()
-                    .replace(R.id.frame_test, new PatientListMainFragment())
+                    .replace(R.id.frame_test, new PatientListFragment())
                     .commit();
         }
     }

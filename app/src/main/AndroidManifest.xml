@@ -2,8 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.infobite.niramayahospital">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,12 +20,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".ui.activity.UpcomingAppointmentActivity"/>
+        <activity android:name=".ui.SignInActivity"/>
+        <activity android:name=".ui.BypassActivity" />
+        <activity android:name=".ui.activity.UpcomingAppointmentActivity" />
         <activity
             android:name=".ui.activity.PrescriptionActivity"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".ui.TestActivity" />
+            android:windowSoftInputMode="adjustPan" />
+        <!--
+<activity android:name=".activity.schedule_section.ScheduleActivity" />
+        <activity android:name=".activity.MainActivity">
+
+            &lt;!&ndash;
+>>>>>>> 7346d0ebd718a709c815f3a3ed06919b38c2931d
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+<<<<<<< HEAD
+        </activity>
+        <activity android:name=".ui.activity.PrescriptionActivity"/>
+
+=======
+            &ndash;&gt;
+        </activity>
+        -->
         <activity
             android:name=".ui.activity.HomeActivity"
             android:screenOrientation="portrait"
@@ -35,8 +62,14 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity" />
+        <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        -->
         <activity
             android:name=".ui.activity.ScheduleActivity"
             android:screenOrientation="portrait" />

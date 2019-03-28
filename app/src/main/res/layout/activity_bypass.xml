@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ui.BypassActivity">
+
+    <Button
+        android:id="@+id/btnDoctor"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/layout_bg_rhl1"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:text="Doctor"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnPharmacy"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/layout_bg_rhl1"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:text="Pharmacy"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnPathology"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/layout_bg_rhl1"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:text="Pathology"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnNurse"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/layout_bg_rhl1"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:text="Nurse"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnAccountant"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/layout_bg_rhl1"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:text="Accountant"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnReception"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/layout_bg_rhl1"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:text="Reception"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnAmbulance"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/layout_bg_rhl1"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:text="Ambulance"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/btnAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:background="@drawable/layout_bg_rhl1"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:text="Admin"
+        android:textAllCaps="false"/>
+
+</LinearLayout>

@@ -41,7 +41,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/layout_bg_white_p7"
+                android:fontFamily="@font/raleway_regular"
                 android:text="123 Palasia Indore Madhya Pradesh"
+                android:textSize="@dimen/size_14"
                 android:textStyle="normal" />
         </LinearLayout>
 
@@ -84,7 +86,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:text="500"
+                    android:fontFamily="@font/raleway_regular"
                     android:background="@color/white"
+                    android:textSize="@dimen/size_14"
                     android:textAlignment="center" />
             </LinearLayout>
 
@@ -109,6 +113,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/layout_bg_white_p7"
                 android:text="+91-9898489445"
+                android:fontFamily="@font/raleway_regular"
+                android:textSize="@dimen/size_14"
                 android:textStyle="normal" />
         </LinearLayout>
 
@@ -143,6 +149,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:fontFamily="@font/raleway_regular"
+                    android:textSize="@dimen/size_14"
                     android:text="11:30 am - 3 pm" />
             </LinearLayout>
         </LinearLayout>
