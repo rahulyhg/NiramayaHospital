@@ -5,19 +5,10 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tvUpcomingAppointmentDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/gray_i"
-        android:padding="16dp"
-        android:text="MONDAY, NOVEMBER 13" />
-
     <RelativeLayout
         android:id="@+id/rlUpcoming"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/tvUpcomingAppointmentDate">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/llUpcoming"
