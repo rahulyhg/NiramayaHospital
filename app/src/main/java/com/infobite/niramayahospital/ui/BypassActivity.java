@@ -1,10 +1,12 @@
 package com.infobite.niramayahospital.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.infobite.niramayahospital.R;
+import com.infobite.niramayahospital.ui.activity.HomeActivity;
 import com.infobite.niramayahospital.utils.BaseActivity;
 
 public class BypassActivity extends BaseActivity implements View.OnClickListener {
@@ -46,6 +48,7 @@ public class BypassActivity extends BaseActivity implements View.OnClickListener
             case R.id.btnAmbulance :
                 break;
             case R.id.btnAdmin :
+                startActivity(new Intent(mContext, HomeActivity.class));
                 break;
 
 
