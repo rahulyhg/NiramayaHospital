@@ -27,7 +27,7 @@
         app:compactCalendarCurrentDayBackgroundColor="#B71C1C"
         app:compactCalendarMultiEventIndicatorColor="#fff"
         />
-
+<include layout="@layout/row_upcoming_appointment"/>
     </LinearLayout>
 
 </RelativeLayout>
