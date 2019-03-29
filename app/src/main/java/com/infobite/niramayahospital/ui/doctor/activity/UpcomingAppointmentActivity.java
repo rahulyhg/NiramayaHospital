@@ -1,13 +1,21 @@
 package com.infobite.niramayahospital.ui.doctor.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.infobite.niramayahospital.R;
+import com.infobite.niramayahospital.constant.Constant;
+import com.infobite.niramayahospital.ui.doctor.fragment.NotificationFragment;
 import com.infobite.niramayahospital.utils.BaseActivity;
+import com.infobite.niramayahospital.utils.FragmentUtils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -16,6 +24,8 @@ import java.util.Locale;
 
 public class UpcomingAppointmentActivity extends BaseActivity {
 
+    private FragmentManager fragmentManager;
+    private FragmentUtils fragmentUtils;
     private SimpleDateFormat dateFormatForMonth = new SimpleDateFormat("MMM - yyyy", Locale.getDefault());
     private SimpleDateFormat dateFormatForSelectedMonth = new SimpleDateFormat("MMM-yyyy", Locale.getDefault());
     private SimpleDateFormat dateFormatForSelectedDay = new SimpleDateFormat("dd-MMM-yyyy", Locale.getDefault());
@@ -48,6 +58,22 @@ public class UpcomingAppointmentActivity extends BaseActivity {
 
 
         initViews();
+        ((ImageView) findViewById(R.id.imgNotification)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               /* ((LinearLayout)findViewById(R.id.llUpcomingActivity)).setVisibility(View.GONE);
+                ((ImageView)findViewById(R.id.imgNotification)).setVisibility(View.GONE);
+                ((ImageView)findViewById(R.id.imgSearch)).setVisibility(View.GONE);
+                ((TextView)findViewById(R.id.txtTitle)).setText("Notification");
+                fragmentManager = getSupportFragmentManager();
+               fragmentUtils = new FragmentUtils(fragmentManager);
+                fragmentUtils.replaceFragment(new NotificationFragment(),Constant.NotificationFragment,R.id.frame_upcoming);
+*/
+                Intent intent = new Intent(mContext, NotificationActivity.class);
+                //    intent.putExtra("from","upcoming");
+                startActivity(intent);
+            }
+        });
     }
 
     private void initViews() {
@@ -62,7 +88,7 @@ public class UpcomingAppointmentActivity extends BaseActivity {
         }
 
 
-        if (!isPrevious){
+        if (!isPrevious) {
             tvPrevious.setVisibility(View.GONE);
         }
 
@@ -90,18 +116,18 @@ public class UpcomingAppointmentActivity extends BaseActivity {
                     e.printStackTrace();
                 }
 
-                if (selectedYear==currentYear){
-                    if (selectedMonth>currentMonth){
+                if (selectedYear == currentYear) {
+                    if (selectedMonth > currentMonth) {
                         isPrevious = true;
                         tvPrevious.setVisibility(View.VISIBLE);
-                    }else{
+                    } else {
                         isPrevious = false;
                         tvPrevious.setVisibility(View.GONE);
                     }
-                }else if(selectedYear>currentYear){
+                } else if (selectedYear > currentYear) {
                     isPrevious = true;
                     tvPrevious.setVisibility(View.VISIBLE);
-                }else{
+                } else {
                     isPrevious = false;
                     tvPrevious.setVisibility(View.GONE);
                 }
@@ -130,4 +156,5 @@ public class UpcomingAppointmentActivity extends BaseActivity {
             }
         });
     }
+
 }

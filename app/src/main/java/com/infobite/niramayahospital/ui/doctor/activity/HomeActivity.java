@@ -18,17 +18,19 @@ import com.infobite.niramayahospital.ui.doctor.fragment.NotificationFragment;
 import com.infobite.niramayahospital.ui.doctor.fragment.PatientListFragment;
 import com.infobite.niramayahospital.ui.doctor.fragment.list.PatientListMainFragment;
 import com.infobite.niramayahospital.ui.doctor.fragment.profile_details.ProfileMainFragment;
+import com.infobite.niramayahospital.utils.BaseActivity;
 import com.infobite.niramayahospital.utils.FragmentUtils;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     public static TextView txtTitle;
     public static ImageView imgSearch, imgSort, imgNotification, imgEditProfile;
     private SlidingRootNav slidingRootNav;
     public static FragmentUtils fragmentUtils;
     public static FragmentManager fragmentManager;
+    private String strFrom = "";
    public  Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,12 +62,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 .inject();
 
         clickListener();
+     //   getIntentData();
     }
     private void getIntentData(){
-        if (getIntent() != null){
+              if (getIntent() != null) {
             Intent intent = getIntent();
             String strFrom = intent.getStringExtra("from");
-            if (strFrom.equals("Prescription")){
+            if (strFrom.equalsIgnoreCase("upcoming")) {
+           //     toolbar.setTitle(Constant.ProductsFragment);
+                fragmentUtils.replaceFragment(new NotificationFragment(), Constant.NotificationFragment,R.id.home_frame);
             }
         }
     }
@@ -127,6 +132,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.txtNotification:
+                txtTitle.setText("Notification");
+                if (NotificationFragment == null) {
+                    fragmentUtils.replaceFragment(new NotificationFragment(), Constant.NotificationFragment, R.id.home_frame);
+                }
+                break;
+                case R.id.imgNotification:
                 txtTitle.setText("Notification");
                 if (NotificationFragment == null) {
                     fragmentUtils.replaceFragment(new NotificationFragment(), Constant.NotificationFragment, R.id.home_frame);
