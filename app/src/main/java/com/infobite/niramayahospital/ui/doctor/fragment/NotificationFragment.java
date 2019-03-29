@@ -24,6 +24,7 @@ public class NotificationFragment extends BaseFragment implements View.OnClickLi
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.fragment_notification, container, false);
+        mContext = getActivity();
         init();
         return rootView;
     }

@@ -24,21 +24,23 @@ import com.infobite.niramayahospital.ui.doctor.fragment.NotificationFragment;
 import com.infobite.niramayahospital.ui.doctor.fragment.PatientListFragment;
 import com.infobite.niramayahospital.ui.doctor.fragment.profile_details.ProfileMainFragment;
 import com.infobite.niramayahospital.utils.AppPreference;
+import com.infobite.niramayahospital.utils.BaseActivity;
 import com.infobite.niramayahospital.utils.FragmentUtils;
 import com.yarolegovich.slidingrootnav.SlidingRootNav;
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     public static TextView txtTitle;
     public static ImageView imgSearch, imgSort, imgNotification, imgEditProfile;
     private SlidingRootNav slidingRootNav;
     public static FragmentUtils fragmentUtils;
     public static FragmentManager fragmentManager;
-   public  Toolbar toolbar;
+    private String strFrom = "";
+    public Toolbar toolbar;
 
-   private UserData userData;
-   private Context mContext;
+    private UserData userData;
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,20 +76,24 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 .inject();
 
         clickListener();
+        //   getIntentData();
     }
-    private void getIntentData(){
-        if (getIntent() != null){
+
+    private void getIntentData() {
+        if (getIntent() != null) {
             Intent intent = getIntent();
             String strFrom = intent.getStringExtra("from");
-            if (strFrom.equals("Prescription")){
+            if (strFrom.equalsIgnoreCase("upcoming")) {
+                //     toolbar.setTitle(Constant.ProductsFragment);
+                fragmentUtils.replaceFragment(new NotificationFragment(), Constant.NotificationFragment, R.id.home_frame);
             }
         }
     }
 
     private void clickListener() {
 
-        ((TextView)findViewById(R.id.tvUserName)).setText(userData.getUserName());
-        ((TextView)findViewById(R.id.tvUserType)).setText(userData.getUserEmail());
+        ((TextView) findViewById(R.id.tvUserName)).setText(userData.getUserName());
+        ((TextView) findViewById(R.id.tvUserType)).setText(userData.getUserEmail());
 
         findViewById(R.id.txtDashboard).setOnClickListener(this);
         findViewById(R.id.txtPatients).setOnClickListener(this);
@@ -123,7 +129,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.txtPatients:
                 txtTitle.setText("Patient List");
                 //if (PatientFragment == null) {
-                    fragmentUtils.replaceFragment(new PatientListFragment(), Constant.PatientFragment, R.id.home_frame);
+                fragmentUtils.replaceFragment(new PatientListFragment(), Constant.PatientFragment, R.id.home_frame);
                 //}
                 break;
             case R.id.txtDuties:
@@ -152,6 +158,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.llLogout:
                 doLogout();
+                break;
+            case R.id.imgNotification:
+                txtTitle.setText("Notification");
+                if (NotificationFragment == null) {
+                    fragmentUtils.replaceFragment(new NotificationFragment(), Constant.NotificationFragment, R.id.home_frame);
+                }
                 break;
         }
         slidingRootNav.closeMenu();
@@ -188,7 +200,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         } else if (PatientFragment != null) {
             txtTitle.setText("Dashboard");
             fragmentUtils.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
-        }else {
+        } else {
             finish();
         }
     }

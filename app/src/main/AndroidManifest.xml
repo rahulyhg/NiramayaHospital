@@ -21,13 +21,13 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.SignInActivity"/>
+        <activity android:name=".ui.doctor.activity.NotificationActivity"></activity>
+        <activity android:name=".ui.SignInActivity" />
         <activity android:name=".ui.BypassActivity" />
         <activity android:name=".ui.doctor.activity.UpcomingAppointmentActivity" />
         <activity
             android:name=".ui.doctor.activity.PrescriptionActivity"
             android:windowSoftInputMode="adjustPan" />
-
         <activity
             android:name=".ui.doctor.activity.HomeActivity"
             android:screenOrientation="portrait"
@@ -56,7 +56,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".ui.doctor.activity.LoginActivity" />
         <activity android:name=".ui.doctor.activity.DoctorProfileActivity" />
 

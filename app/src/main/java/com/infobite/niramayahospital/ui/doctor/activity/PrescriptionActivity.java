@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -20,6 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,8 +54,15 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
     private PrecriptionListAdapter prescriptionAdapter;
 
     String[] arr = {"completenate", "cometriq", "companion", "cpmpleat", "compazine", "complera"};
+    String[] arrTreatment = {"Treatment Given", "Treatment Advised"};
     private AutoCompleteTextView autoCompleteSearch;
     private EditText etDose, etTest;
+    private String leftSelectedTreatment = "";
+    private String rightSelectedTreatment = "";
+    private int leftSelectedTreatmentPosition = 0;
+    private int rightSelectedTreatmentPosition = 0;
+
+    private Spinner spnLeftTreatment, spnRightTreatment;
 
     private String DIRECTORY = Environment.getExternalStorageDirectory().getPath() + "/Niramaya/";
     private String folder_main = "Niramaya";
@@ -91,6 +100,9 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
         tvClearMedicine = (TextView) findViewById(R.id.tvClearMedicine);
         tvClearDose = (TextView) findViewById(R.id.tvClearDose);
         rvMedicine = (RecyclerView) findViewById(R.id.rvMedicine);
+
+        spnLeftTreatment = (Spinner) findViewById(R.id.spnLeftTreatment);
+        spnRightTreatment = (Spinner) findViewById(R.id.spnRightTreatment);
 
         tvClearDose.setOnClickListener(this);
         tvClearMedicine.setOnClickListener(this);
@@ -180,6 +192,59 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
 
         autoCompleteSearch.setThreshold(2);
         autoCompleteSearch.setAdapter(adapter);
+
+        ArrayAdapter leftTreatmentAdapter = new ArrayAdapter(mContext, R.layout.row_spn_normal, arrTreatment);
+        spnLeftTreatment.setAdapter(leftTreatmentAdapter);
+        spnLeftTreatment.setSelection(rightSelectedTreatmentPosition);
+        spnLeftTreatment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                leftSelectedTreatment = arrTreatment[position];
+                leftSelectedTreatmentPosition = position;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        leftTreatmentAdapter.notifyDataSetChanged();
+
+        ArrayAdapter rightTreatmentAdapter = new ArrayAdapter(mContext, R.layout.row_spn_normal, arrTreatment);
+        spnRightTreatment.setAdapter(rightTreatmentAdapter);
+        spnRightTreatment.setSelection(rightSelectedTreatmentPosition);
+        spnRightTreatment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position>0) {
+                    rightSelectedTreatment = arrTreatment[position];
+                    rightSelectedTreatmentPosition = position;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        rightTreatmentAdapter.notifyDataSetChanged();
+
+        /*ArrayAdapter putAdapter = new ArrayAdapter(mContext, android.R.layout.simple_spinner_dropdown_item, propertyUsageTypeArray);
+        spnPUT.setAdapter(putAdapter);
+        spnPUT.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position>0) {
+                    propertyUsageType = propertyUsageTypeArray[position];
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        putAdapter.notifyDataSetChanged();*/
     }
 
     @Override

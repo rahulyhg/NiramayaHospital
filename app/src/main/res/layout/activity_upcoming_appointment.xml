@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/rlUpcomingActivity"
     tools:context=".ui.doctor.activity.UpcomingAppointmentActivity">
 
 
@@ -53,13 +54,23 @@
                     android:layout_marginRight="16dp"
                     android:src="@drawable/icf_search" />
             </RelativeLayout>
+    <FrameLayout
+        android:layout_below="@id/ap"
+        android:id="@+id/frame_upcoming"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <LinearLayout
+        android:id="@+id/llUpcomingActivity"
+        android:orientation="vertical"
+        android:layout_below="@+id/ap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/llCal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/layout_bg4"
-        android:layout_below="@+id/ap"
         android:orientation="vertical">
 
         <TextView
@@ -152,5 +163,5 @@
 
 <include layout="@layout/row_upcoming_appointment"/>
     </LinearLayout>
-
+    </LinearLayout>
 </RelativeLayout>

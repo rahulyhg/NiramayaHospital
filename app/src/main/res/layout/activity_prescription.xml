@@ -30,11 +30,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <RelativeLayout
+            android:id="@+id/rlSpnLeft"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="36dp"
+            android:padding="8dp"
+            android:background="@drawable/layout_bg6">
+            <Spinner
+                android:id="@+id/spnLeftTreatment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </RelativeLayout>
+
         <TextView
             android:id="@+id/tvMedicine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/rlSpnLeft"
             android:textSize="@dimen/size_18"
             android:text="Write the name of medicine"
             android:gravity="center"/>
@@ -143,6 +159,19 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp">
 
+            <RelativeLayout
+                android:id="@+id/rlSpnRight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:background="@drawable/layout_bg6">
+                <Spinner
+                    android:id="@+id/spnRightTreatment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
             <TextView
                 android:id="@+id/tvTopTitle"
                 android:layout_width="match_parent"
@@ -150,6 +179,7 @@
                 android:textSize="@dimen/size_18"
                 android:text="Search the name of medicine"
                 android:gravity="center"
+                android:layout_below="@+id/rlSpnRight"
                 android:layout_marginTop="16dp"/>
 
             <AutoCompleteTextView
