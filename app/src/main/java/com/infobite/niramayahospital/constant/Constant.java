@@ -11,6 +11,11 @@ public class Constant {
     public static final String USER_LOGIN = "api/user-login.php";
 
 
+
+    public static final String USER_LOGIN_DATA = "userLoginData";
+    public static final String IS_LOGIN = "isLogin";
+
+
     // Fragment constant
     public static final String DashboardFragment = "Dashboard_Fragment";
     public static final String NotificationFragment = "Notification_Fragment";

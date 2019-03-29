@@ -4,6 +4,7 @@ package com.infobite.niramayahospital.retrofit;
 import android.app.Dialog;
 
 import com.infobite.niramayahospital.BuildConfig;
+import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.utils.AppProgressDialog;
 
 import java.util.concurrent.TimeUnit;
@@ -22,8 +23,6 @@ public class RetrofitService {
 
     public static RetrofitApiClient client;
 
-    public static String BASE_URL = "http://kolbrogroup.com/SurveyApp/";
-
     public RetrofitService() {
 
         HttpLoggingInterceptor mHttpLoginInterceptor = new HttpLoggingInterceptor();
@@ -37,7 +36,7 @@ public class RetrofitService {
         }
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(Constant.BASE_URL)
                 .client(mOkClient.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -48,7 +47,7 @@ public class RetrofitService {
         Retrofit retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
-                .baseUrl(BASE_URL)
+                .baseUrl(Constant.BASE_URL)
                 .build();
         return retrofit.create(RetrofitApiClient.class);
     }

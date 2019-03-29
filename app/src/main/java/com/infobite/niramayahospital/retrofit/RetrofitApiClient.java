@@ -1,5 +1,7 @@
 package com.infobite.niramayahospital.retrofit;
 
+import com.infobite.niramayahospital.constant.Constant;
+
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -13,8 +15,10 @@ import retrofit2.http.Part;
 public interface RetrofitApiClient {
 
     @FormUrlEncoded
-    @POST("login.php")
-    Call<ResponseBody> login(@Field("uName") String uName,
-                             @Field("uPass") String uPass);
+    @POST(Constant.USER_LOGIN)
+    Call<ResponseBody> login(@Field("username") String username,
+                             @Field("password") String password,
+                             @Field("device_id") String device_id,
+                             @Field("hospital_id") String hospital_id);
 
 }
