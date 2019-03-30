@@ -27,7 +27,8 @@
         <activity android:name=".ui.doctor.activity.UpcomingAppointmentActivity" />
         <activity
             android:name=".ui.doctor.activity.PrescriptionActivity"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="stateHidden|adjustPan"
+           />
         <activity
             android:name=".ui.doctor.activity.HomeActivity"
             android:screenOrientation="portrait"

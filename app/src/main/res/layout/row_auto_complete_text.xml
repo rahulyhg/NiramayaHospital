@@ -6,6 +6,4 @@
     android:padding="5dp"
     android:textSize="@dimen/size_14"
     android:id="@+id/text">
-
-
 </TextView>
