@@ -2,6 +2,7 @@ package com.infobite.niramayahospital.retrofit;
 
 import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.models.doctor.appointement.DoctorAppointementModel;
+import com.infobite.niramayahospital.models.doctor.medicine_pathology.MedicinePathologyMainModal;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -30,5 +31,9 @@ public interface RetrofitApiClient {
     @POST(Constant.DOCTOR_APPOINTMENT_STATUS)
     Call<ResponseBody> appointmentStatus(@Field("appointment_id") String appointment_id,
                                          @Field("appointment_status") String appointment_status);
+
+    @FormUrlEncoded
+    @POST(Constant.MEDICINE_PATHOLOGY)
+    Call<MedicinePathologyMainModal> medicinePathology(@Field("hospital_id") String hospital_id);
 
 }

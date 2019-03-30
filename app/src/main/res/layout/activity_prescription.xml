@@ -256,8 +256,8 @@
                 android:text="Search the name of the test"
                 android:layout_marginTop="24dp"/>
 
-            <EditText
-                android:id="@+id/etTest"
+            <AutoCompleteTextView
+                android:id="@+id/acPathologyTest"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
                 android:layout_marginEnd="8dp"

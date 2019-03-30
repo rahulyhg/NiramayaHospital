@@ -1,5 +1,7 @@
 package com.infobite.niramayahospital.ui.doctor.activity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Environment;
@@ -29,6 +31,12 @@ import com.infobite.niramayahospital.R;
 import com.crashlytics.android.Crashlytics;
 import com.infobite.niramayahospital.adapter.PrecriptionListAdapter;
 import com.infobite.niramayahospital.models.CreatePrescriptionModel;
+import com.infobite.niramayahospital.models.doctor.medicine_pathology.Medciinie;
+import com.infobite.niramayahospital.models.doctor.medicine_pathology.MedicinePathologyMainModal;
+import com.infobite.niramayahospital.models.doctor.medicine_pathology.PathologyTest;
+import com.infobite.niramayahospital.retrofit.RetrofitService;
+import com.infobite.niramayahospital.retrofit.WebResponse;
+import com.infobite.niramayahospital.utils.Alerts;
 import com.infobite.niramayahospital.utils.BaseActivity;
 import com.infobite.niramayahospital.utils.DigitalSignature;
 
@@ -39,6 +47,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import io.fabric.sdk.android.Fabric;
+import retrofit2.Response;
 
 public class PrescriptionActivity extends BaseActivity implements View.OnClickListener {
 
@@ -55,7 +64,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
 
     String[] arr = {"completenate", "cometriq", "companion", "cpmpleat", "compazine", "complera"};
     String[] arrTreatment = {"Treatment Given", "Treatment Advised"};
-    private AutoCompleteTextView autoCompleteSearch;
+    private AutoCompleteTextView autoCompleteSearch,autoCompletePathologySearch;
     private EditText etDose, etTest;
     private String leftSelectedTreatment = "";
     private String rightSelectedTreatment = "";
@@ -71,6 +80,11 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
     private String medicineStoredPath = "";
     private DigitalSignature cMedicine, cDose;
     private File file;
+
+    private ArrayList<Medciinie> medicineList;
+    private ArrayList<PathologyTest> pathologyTestList;
+    ArrayAdapter<Medciinie> adapter;
+    ArrayAdapter<PathologyTest> adapter1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +109,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
 
         autoCompleteSearch = (AutoCompleteTextView) findViewById(R.id.edtSearch);
         etDose = (EditText) findViewById(R.id.etDose);
-        etTest = (EditText) findViewById(R.id.etTest);
+        autoCompletePathologySearch = (AutoCompleteTextView) findViewById(R.id.acPathologyTest);
 
         tvClearMedicine = (TextView) findViewById(R.id.tvClearMedicine);
         tvClearDose = (TextView) findViewById(R.id.tvClearDose);
@@ -116,7 +130,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
         ((ImageView) findViewById(R.id.imgEditPrescription)).setOnClickListener(this);
 
         prescriptionList = new ArrayList<>();
-
+        medicinePathologyApi();
         initViews();
 
     }
@@ -186,20 +200,13 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
             }
         });
 
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (this, R.layout.row_auto_complete_text, arr);
-
-        autoCompleteSearch.setThreshold(2);
-        autoCompleteSearch.setAdapter(adapter);
-
         ArrayAdapter leftTreatmentAdapter = new ArrayAdapter(mContext, R.layout.row_spn_normal, arrTreatment);
         spnLeftTreatment.setAdapter(leftTreatmentAdapter);
         spnLeftTreatment.setSelection(rightSelectedTreatmentPosition);
         spnLeftTreatment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                leftSelectedTreatment = arrTreatment[position];
+                leftSelectedTreatment = String.valueOf(arrTreatment[position]);
                 leftSelectedTreatmentPosition = position;
             }
 
@@ -258,6 +265,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
                 break;
             case R.id.btnAddMedicine:
                 initAddMedicine();
+                initPathologyTest();
                 break;
             case R.id.btnAddTest:
                 drawer.closeDrawer(Gravity.END);
@@ -320,8 +328,79 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
             drawer.closeDrawer(Gravity.END);
         }
     }
+    private void initPathologyTest() {
+        String pathTest = autoCompletePathologySearch.getText().toString().trim();
+        String dose = etDose.getText().toString().trim();
+        if (pathTest.isEmpty()) {
+            showToast("First enter a pathology test name.");
+        } else if (dose.isEmpty()) {
+            showToast("Please add dose.");
+        } else {
+            CreatePrescriptionModel prescriptionModel = new CreatePrescriptionModel();
+            prescriptionModel.setType("TEXT");
+            prescriptionModel.setMedicine(pathTest);
+            prescriptionModel.setDose(dose);
+            prescriptionList.add(prescriptionModel);
+            prescriptionAdapter.notifyDataSetChanged();
+            if (prescriptionList.size() > 0) {
+                ((CardView) findViewById(R.id.cv_submit)).setVisibility(View.VISIBLE);
+                ((ImageView) findViewById(R.id.imgEditPrescription)).setVisibility(View.VISIBLE);
+            }
+            autoCompletePathologySearch.setText("");
+            etDose.setText("");
+            drawer.closeDrawer(Gravity.END);
+        }
+    }
 
     private void showToast(String msg) {
         Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
+    }
+    private void setAutoCompleteSearchData(){
+        adapter = new ArrayAdapter<Medciinie>
+                (this, R.layout.row_auto_complete_text, medicineList);
+        autoCompleteSearch.setThreshold(2);
+        autoCompleteSearch.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+    private void setAutoCompletePathTestData(){
+        adapter1 = new ArrayAdapter<PathologyTest>
+                (this, R.layout.row_auto_complete_text, pathologyTestList);
+        autoCompletePathologySearch.setThreshold(2);
+        autoCompletePathologySearch.setAdapter(adapter1);
+        adapter1.notifyDataSetChanged();
+    }
+
+    private void medicinePathologyApi(){
+
+        if (cd.isNetworkAvailable()){
+
+            RetrofitService.getMedicinePathologyList(new Dialog(mContext), retrofitApiClient.medicinePathology("1"), new WebResponse() {
+                @Override
+                public void onResponseSuccess(Response<?> result) {
+                    MedicinePathologyMainModal mainModal = (MedicinePathologyMainModal) result.body();
+                    if (mainModal != null){
+                        Alerts.show(mContext,mainModal.getMessage());
+                        if (mainModal.getMedciinie() != null){
+                            medicineList = (ArrayList<Medciinie>) mainModal.getMedciinie();
+                            setAutoCompleteSearchData();
+
+                        }else {
+                            Alerts.show(mContext,mainModal.getMessage());
+                        }
+                        if (mainModal.getPathologyTest() != null){
+                            pathologyTestList = (ArrayList<PathologyTest>) mainModal.getPathologyTest();
+                            setAutoCompletePathTestData();
+                        }
+                    }else {
+                        Alerts.show(mContext,mainModal.getMessage());
+                    }
+                }
+
+                @Override
+                public void onResponseFailed(String error) {
+                    Alerts.show(mContext,error);
+                }
+            });
+        }
     }
 }
