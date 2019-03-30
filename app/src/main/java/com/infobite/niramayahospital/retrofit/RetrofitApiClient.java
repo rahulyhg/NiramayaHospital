@@ -1,6 +1,7 @@
 package com.infobite.niramayahospital.retrofit;
 
 import com.infobite.niramayahospital.constant.Constant;
+import com.infobite.niramayahospital.models.doctor.appointement.DoctorAppointementModel;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -20,5 +21,9 @@ public interface RetrofitApiClient {
                              @Field("password") String password,
                              @Field("device_id") String device_id,
                              @Field("hospital_id") String hospital_id);
+
+    @FormUrlEncoded
+    @POST(Constant.DOCTOR_APPOINTMENT)
+    Call<DoctorAppointementModel> doctorAppointment(@Field("doctor_id") String doctor_id);
 
 }

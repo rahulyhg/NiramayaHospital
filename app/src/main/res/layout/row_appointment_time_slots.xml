@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/rlAvailable"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:background="@drawable/layout_bg_rhl5">
+
+            <TextView
+                android:id="@+id/tvAvailTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/size_18"
+                android:textColor="@color/black"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="12:00 PM - 2:00 PM"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rlBooked"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_margin="8dp"
+            android:visibility="gone"
+            android:background="@drawable/layout_bg_rhl5">
+
+            <TextView
+                android:id="@+id/tvBookedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/size_18"
+                android:textColor="@color/black"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:text="6:00 PM - 8:00 PM"/>
+
+        </RelativeLayout>
+
+</RelativeLayout>

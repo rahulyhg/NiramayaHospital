@@ -9,6 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.infobite.niramayahospital.retrofit.RetrofitApiClient;
+import com.infobite.niramayahospital.retrofit.RetrofitService;
+
 public class BaseFragment extends Fragment {
 
     //public RetrofitApiClient retrofitApiClient;

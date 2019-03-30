@@ -5,6 +5,7 @@ import android.app.Dialog;
 
 import com.infobite.niramayahospital.BuildConfig;
 import com.infobite.niramayahospital.constant.Constant;
+import com.infobite.niramayahospital.models.doctor.appointement.DoctorAppointementModel;
 import com.infobite.niramayahospital.utils.AppProgressDialog;
 
 import java.util.concurrent.TimeUnit;
@@ -72,6 +73,25 @@ public class RetrofitService {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable throwable) {
+                AppProgressDialog.hide(dialog);
+                webResponse.onResponseFailed(throwable.getMessage());
+            }
+        });
+    }
+
+    public static void getDoctorAppointment(final Dialog dialog, final Call<DoctorAppointementModel> method, final WebResponse webResponse) {
+        if (dialog != null)
+            AppProgressDialog.show(dialog);
+
+        method.enqueue(new Callback<DoctorAppointementModel>() {
+            @Override
+            public void onResponse(Call<DoctorAppointementModel> call, Response<DoctorAppointementModel> response) {
+                AppProgressDialog.hide(dialog);
+                WebServiceResponse.handleResponse(response, webResponse);
+            }
+
+            @Override
+            public void onFailure(Call<DoctorAppointementModel> call, Throwable throwable) {
                 AppProgressDialog.hide(dialog);
                 webResponse.onResponseFailed(throwable.getMessage());
             }
