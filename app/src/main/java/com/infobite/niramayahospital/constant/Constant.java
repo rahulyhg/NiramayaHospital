@@ -10,6 +10,7 @@ public class Constant {
     public static final String BASE_URL = "http://niramaya.infobitetechnology.tech/";
     public static final String USER_LOGIN = "api/user-login.php";
     public static final String DOCTOR_APPOINTMENT = "api/select_appointment.php";
+    public static final String DOCTOR_APPOINTMENT_STATUS = "api/appointment-status.php";
 
 
 
