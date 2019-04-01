@@ -3,6 +3,7 @@ package com.infobite.niramayahospital.models;
 public class CreatePrescriptionModel {
 
     private String type;
+    private String id;
     private String medicineImagePath;
     private String doseImagePath;
     private String medicine;
@@ -15,6 +16,14 @@ public class CreatePrescriptionModel {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getMedicineImagePath() {
