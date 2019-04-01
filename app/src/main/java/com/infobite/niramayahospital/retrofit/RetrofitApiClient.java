@@ -28,6 +28,11 @@ public interface RetrofitApiClient {
     Call<DoctorAppointementModel> doctorAppointment(@Field("doctor_id") String doctor_id);
 
     @FormUrlEncoded
+    @POST(Constant.DOCTOR_APPOINTMENT_STATUS)
+    Call<ResponseBody> appointmentStatus(@Field("appointment_id") String appointment_id,
+                                         @Field("appointment_status") String appointment_status);
+
+    @FormUrlEncoded
     @POST(Constant.MEDICINE_PATHOLOGY)
     Call<MedicinePathologyMainModal> medicinePathology(@Field("hospital_id") String hospital_id);
 

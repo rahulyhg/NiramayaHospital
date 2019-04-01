@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -39,8 +40,18 @@ public class AppointmentDetailsAdapter extends RecyclerView.Adapter<AppointmentD
         OpdAppointment appointmentData = appointmentDataList.get(position);
         holder.tvCount.setText((position+1)+"");
         holder.tvPatientName.setText(": "+appointmentData.getPatient());
-        holder.tvPatientType.setText(": "+appointmentData.getAppointmentType());
-        holder.tvStatus.setText(": "+appointmentData.getAppointmentPaymentStatus());
+        holder.tvPatientType.setText(": Consultation");
+
+        if (appointmentData.getAppointmentPaymentStatus().equals("0")){
+            holder.tvStatus.setText(": Unpaid");
+        }else{
+            holder.tvStatus.setText(": Paid");
+        }
+
+        holder.btnCall.setTag(position);
+        holder.btnCall.setOnClickListener(listener);
+        holder.btnDismiss.setTag(position);
+        holder.btnDismiss.setOnClickListener(listener);
         //holder.tvRoomNo.setText(appointmentData.get());
 
     }
@@ -54,6 +65,7 @@ public class AppointmentDetailsAdapter extends RecyclerView.Adapter<AppointmentD
 
         private RelativeLayout rlAvailable;
         private TextView tvCount, tvPatientName, tvPatientType, tvStatus, tvRoomNo;
+        private Button btnCall, btnDismiss;
 
         public MyViewHolder(View view) {
             super(view);
@@ -64,6 +76,9 @@ public class AppointmentDetailsAdapter extends RecyclerView.Adapter<AppointmentD
             tvPatientType = view.findViewById(R.id.tvPatientType);
             tvStatus = view.findViewById(R.id.tvStatus);
             tvRoomNo = view.findViewById(R.id.tvRoomNo);
+
+            btnCall = view.findViewById(R.id.btnCall);
+            btnDismiss = view.findViewById(R.id.btnDismiss);
 
         }
     }

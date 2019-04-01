@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.models.doctor.appointement.AppointementDatum;
+import com.infobite.niramayahospital.ui.doctor.fragment.DashboardFragment;
+import com.infobite.niramayahospital.utils.InitAppointmentDetail;
 
 import java.util.ArrayList;
 
@@ -19,11 +21,17 @@ public class AppointmentTimeSlotsAdapter extends RecyclerView.Adapter<Appointmen
     private ArrayList<AppointementDatum> appointmentDataList;
     private Context mContext;
     private View.OnClickListener listener;
+    private InitAppointmentDetail appointmentDetail;
 
-    public AppointmentTimeSlotsAdapter(ArrayList<AppointementDatum> appointmentDataList, Context mContext, View.OnClickListener clickListener) {
+    private static RelativeLayout lastChecked = null;
+    private static int lastCheckedPos = 0;
+    private int row_index = 0;
+
+    public AppointmentTimeSlotsAdapter(ArrayList<AppointementDatum> appointmentDataList, Context mContext, View.OnClickListener clickListener, InitAppointmentDetail appointmentDetail) {
         this.appointmentDataList = appointmentDataList;
         this.mContext = mContext;
         this.listener = clickListener;
+        this.appointmentDetail = appointmentDetail;
     }
 
     @Override
@@ -34,11 +42,30 @@ public class AppointmentTimeSlotsAdapter extends RecyclerView.Adapter<Appointmen
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         AppointementDatum appointmentData = appointmentDataList.get(position);
         holder.tvAvailTime.setText(appointmentData.getOpdStartTime()+" - "+appointmentData.getOpdEndTime());
-        holder.rlAvailable.setTag(position);
-        holder.rlAvailable.setOnClickListener(listener);
+        /*holder.rlAvailable.setTag(position);
+        holder.rlAvailable.setOnClickListener(listener);*/
+
+        holder.rlAvailable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                row_index=position;
+                notifyDataSetChanged();
+                appointmentDetail.initAppointmentDetails(position);
+            }
+        });
+
+        if(row_index==position){
+            holder.rlAvailable.setBackground(mContext.getResources().getDrawable(R.drawable.layout_bg_rhl2));
+            holder.tvAvailTime.setTextColor(mContext.getResources().getColor(R.color.white));
+        }
+        else
+        {
+            holder.rlAvailable.setBackground(mContext.getResources().getDrawable(R.drawable.layout_bg_rhl5));
+            holder.tvAvailTime.setTextColor(mContext.getResources().getColor(R.color.black));
+        }
     }
 
     @Override
