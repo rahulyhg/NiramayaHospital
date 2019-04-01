@@ -34,6 +34,7 @@ import com.infobite.niramayahospital.models.CreatePrescriptionModel;
 import com.infobite.niramayahospital.models.doctor.medicine_pathology.Medciinie;
 import com.infobite.niramayahospital.models.doctor.medicine_pathology.MedicinePathologyMainModal;
 import com.infobite.niramayahospital.models.doctor.medicine_pathology.PathologyTest;
+import com.infobite.niramayahospital.models.user.UserModel;
 import com.infobite.niramayahospital.retrofit.RetrofitService;
 import com.infobite.niramayahospital.retrofit.WebResponse;
 import com.infobite.niramayahospital.utils.Alerts;
@@ -64,7 +65,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
 
     String[] arr = {"completenate", "cometriq", "companion", "cpmpleat", "compazine", "complera"};
     String[] arrTreatment = {"Treatment Given", "Treatment Advised"};
-    private AutoCompleteTextView autoCompleteSearch,autoCompletePathologySearch;
+    private AutoCompleteTextView autoCompleteSearch, autoCompletePathologySearch;
     private EditText etDose, etTest;
     private String leftSelectedTreatment = "";
     private String rightSelectedTreatment = "";
@@ -223,7 +224,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
         spnRightTreatment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position>0) {
+                if (position > 0) {
                     rightSelectedTreatment = arrTreatment[position];
                     rightSelectedTreatmentPosition = position;
                 }
@@ -328,6 +329,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
             drawer.closeDrawer(Gravity.END);
         }
     }
+
     private void initPathologyTest() {
         String pathTest = autoCompletePathologySearch.getText().toString().trim();
         String dose = etDose.getText().toString().trim();
@@ -355,50 +357,51 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
     private void showToast(String msg) {
         Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
     }
-    private void setAutoCompleteSearchData(){
+
+    private void setAutoCompleteSearchData() {
         adapter = new ArrayAdapter<Medciinie>
                 (this, R.layout.row_auto_complete_text, medicineList);
         autoCompleteSearch.setThreshold(2);
         autoCompleteSearch.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
-    private void setAutoCompletePathTestData(){
+
+    private void setAutoCompletePathTestData() {
         adapter1 = new ArrayAdapter<PathologyTest>
                 (this, R.layout.row_auto_complete_text, pathologyTestList);
         autoCompletePathologySearch.setThreshold(2);
         autoCompletePathologySearch.setAdapter(adapter1);
         adapter1.notifyDataSetChanged();
     }
+    private void medicinePathologyApi() {
 
-    private void medicinePathologyApi(){
-
-        if (cd.isNetworkAvailable()){
+        if (cd.isNetworkAvailable()) {
 
             RetrofitService.getMedicinePathologyList(new Dialog(mContext), retrofitApiClient.medicinePathology("1"), new WebResponse() {
                 @Override
                 public void onResponseSuccess(Response<?> result) {
                     MedicinePathologyMainModal mainModal = (MedicinePathologyMainModal) result.body();
-                    if (mainModal != null){
-                        Alerts.show(mContext,mainModal.getMessage());
-                        if (mainModal.getMedciinie() != null){
+                    if (mainModal != null) {
+                        Alerts.show(mContext, mainModal.getMessage());
+                        if (mainModal.getMedciinie() != null) {
                             medicineList = (ArrayList<Medciinie>) mainModal.getMedciinie();
                             setAutoCompleteSearchData();
 
-                        }else {
-                            Alerts.show(mContext,mainModal.getMessage());
+                        } else {
+                            Alerts.show(mContext, mainModal.getMessage());
                         }
-                        if (mainModal.getPathologyTest() != null){
+                        if (mainModal.getPathologyTest() != null) {
                             pathologyTestList = (ArrayList<PathologyTest>) mainModal.getPathologyTest();
                             setAutoCompletePathTestData();
                         }
-                    }else {
-                        Alerts.show(mContext,mainModal.getMessage());
+                    } else {
+                        Alerts.show(mContext, mainModal.getMessage());
                     }
                 }
 
                 @Override
                 public void onResponseFailed(String error) {
-                    Alerts.show(mContext,error);
+                    Alerts.show(mContext, error);
                 }
             });
         }

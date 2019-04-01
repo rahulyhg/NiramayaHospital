@@ -56,6 +56,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private void init(Bundle savedInstanceState) {
 
         imgNotification = findViewById(R.id.imgNotification);
+        imgNotification.setOnClickListener(this);
         imgEditProfile = findViewById(R.id.imgEditProfile);
         imgSearch = findViewById(R.id.imgSearch);
         imgSort = findViewById(R.id.imgSort);
