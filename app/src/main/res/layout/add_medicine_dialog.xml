@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/gray_i"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="16dp"
+            android:text="Add Medicine"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_16"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Category"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Store Box"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Purchase Price"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:gravity="center_vertical"
+                    android:text="Sale Price"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Quantity"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="number"
+                    android:padding="8dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Generic Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Company"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Side Effects"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Expire Date"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:id="@+id/etExpireDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:drawableRight="@drawable/icf_calender_p"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <Button
+                    android:id="@+id/btnAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="40dp"
+                    android:background="@drawable/layout_bg5"
+                    android:text="Add"
+                    android:textColor="@color/white"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_margin="4dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:layout_margin="4dp"
+        android:id="@+id/tvAlphaBateName"
+        android:background="@drawable/layout_bg_red_corner_p11"
+        android:textSize="@dimen/size_20"
+        android:textColor="@color/black"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

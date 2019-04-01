@@ -14,6 +14,7 @@ import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.models.user.UserModel;
 import com.infobite.niramayahospital.ui.SignInActivity;
+import com.infobite.niramayahospital.ui.pathology.activity.MainActivity;
 import com.infobite.niramayahospital.utils.AppPreference;
 import com.infobite.niramayahospital.utils.BaseActivity;
 
@@ -55,14 +56,80 @@ public class SplashActivity extends BaseActivity {
                     UserModel userModel = gson.fromJson(userData, UserModel.class);
 
                     UserModel.setUserModel(userModel);
+                    switch (userModel.getUser().getUserType()) {
+                        case "doctor":
+                            Intent intent = new Intent(mContext, HomeActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
+                            finish();
+                            break;
+                        case "pharmacy":
+                            Intent intent1 = new Intent(mContext, com.infobite.niramayahospital.ui.pharmacy.activity.HomeActivity.class);
+                            intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent1.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent1.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent1.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent1);
+                            finish();
+                            break;
+                        case "pathology":
+                            Intent intent2 = new Intent(mContext, MainActivity.class);
+                            intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent2.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent2.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent2.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent2);
+                            finish();
+                            break;
+                        case "receptionist":
+                            Intent intent3 = new Intent(mContext, com.infobite.niramayahospital.ui.pharmacy.activity.HomeActivity.class);
+                            intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent3.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent3.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent3.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent3);
+                            finish();
+                            break;
+                        case "account":
+                            Intent intent4 = new Intent(mContext, com.infobite.niramayahospital.ui.pharmacy.activity.HomeActivity.class);
+                            intent4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent4.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent4.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent4.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent4);
+                            finish();
+                            break;
+                        case "manager":
+                            Intent intent5 = new Intent(mContext, com.infobite.niramayahospital.ui.pharmacy.activity.HomeActivity.class);
+                            intent5.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent5.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent5.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent5.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent5);
+                            finish();
+                            break;
+                        case "nurse":
+                            Intent intent6 = new Intent(mContext, com.infobite.niramayahospital.ui.pharmacy.activity.HomeActivity.class);
+                            intent6.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            intent6.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            intent6.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            intent6.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent6);
+                            finish();
+                            break;
 
-                    Intent intent = new Intent(mContext, HomeActivity.class);
+                    }
+/*
+                     Intent intent = new Intent(mContext, HomeActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
                     startActivity(intent);
-                    finish();
+                    finish();*/
                 } else {
                     Intent intent = new Intent(mContext, SignInActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
