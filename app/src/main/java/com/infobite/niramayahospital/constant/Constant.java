@@ -62,4 +62,13 @@ public class Constant {
     public static final String ViewReportsFragment =  "ViewReportsFragment";
     public static final String PastHistoryFragment = "PastHistoryFragment";
     public static final String NurseNotesFragment = "NurseNotesFragment";
+    public static final String AddMedicineFragment = "Add Medicine";
+    public static final String HomeFragment = "Home" ;
+    public static final String LatestExpensesFragment = "Latest Expences";
+    public static final String LatestSalesFragment = "Latest Sales";
+    public static final String LatestMedicineFragment = "Latest Medicines";
+    public static final String SalesAndExpensesFragment = "Sales and Expences";
+    public static final String AllTestsFragMent = "All Tests";
+
+    public static final String FragmentAllTests = "FragmentAllTests";
 }

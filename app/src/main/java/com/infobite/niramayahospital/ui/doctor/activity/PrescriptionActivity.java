@@ -286,10 +286,9 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
         spnRightTreatment.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                    rightSelectedTreatment = arrTreatment[position];
-                    rightSelectedTreatmentPosition = position;
-                    //showToast(mContext, position+"#");
+                rightSelectedTreatment = arrTreatment[position];
+                rightSelectedTreatmentPosition = position;
+                //showToast(mContext, position+"#");
 
             }
 
@@ -530,25 +529,25 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
         JSONArray medicineArray = new JSONArray();
         JSONArray testArray = new JSONArray();
 
-        for(int i = 0; i<prescriptionList.size(); i++){
+        for (int i = 0; i < prescriptionList.size(); i++) {
 
             JSONObject medicineNameObject = new JSONObject();
             JSONObject medicineImageObject = new JSONObject();
             JSONObject testObject = new JSONObject();
 
             try {
-                if (prescriptionList.get(i).getType().equals("CANVAS")){
+                if (prescriptionList.get(i).getType().equals("CANVAS")) {
 
-                String medicine64 = convertToBase64(prescriptionList.get(i).getMedicineImagePath());
-                String dose64 = convertToBase64(prescriptionList.get(i).getDoseImagePath());
+                    String medicine64 = convertToBase64(prescriptionList.get(i).getMedicineImagePath());
+                    String dose64 = convertToBase64(prescriptionList.get(i).getDoseImagePath());
 
-                medicineImageObject.put("medicine_image", medicine64);
-                medicineImageObject.put("medicine_dose", dose64);
-                medicineImageObject.put("preception_type", "0");
+                    medicineImageObject.put("medicine_image", medicine64);
+                    medicineImageObject.put("medicine_dose", dose64);
+                    medicineImageObject.put("preception_type", "0");
 
-                medicineArray.put(medicineImageObject);
+                    medicineArray.put(medicineImageObject);
 
-            }else if (prescriptionList.get(i).getType().equals("TEXT")){
+                } else if (prescriptionList.get(i).getType().equals("TEXT")) {
                     medicineNameObject.put("medicine_id", prescriptionList.get(i).getId());
                     medicineNameObject.put("medicine_name", prescriptionList.get(i).getMedicine());
                     medicineNameObject.put("dose", prescriptionList.get(i).getDose());
@@ -556,7 +555,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
 
                     medicineArray.put(medicineNameObject);
 
-            }else if (prescriptionList.get(i).getType().equals("TEST")){
+                } else if (prescriptionList.get(i).getType().equals("TEST")) {
                     testObject.put("test_name", prescriptionList.get(i).getTest());
                     testObject.put("test_id", prescriptionList.get(i).getId());
 
@@ -568,14 +567,14 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
 
         }
 
-        for(int i = 0; i<prescriptionAdvisedList.size(); i++){
+        for (int i = 0; i < prescriptionAdvisedList.size(); i++) {
 
             JSONObject medicineNameObject = new JSONObject();
             JSONObject medicineImageObject = new JSONObject();
             JSONObject testObject = new JSONObject();
 
             try {
-                if (prescriptionAdvisedList.get(i).getType().equals("CANVAS")){
+                if (prescriptionAdvisedList.get(i).getType().equals("CANVAS")) {
 
                     String medicine64 = convertToBase64(prescriptionAdvisedList.get(i).getMedicineImagePath());
                     String dose64 = convertToBase64(prescriptionAdvisedList.get(i).getDoseImagePath());
@@ -586,13 +585,13 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
 
                     medicineArray.put(medicineImageObject);
 
-                }else if (prescriptionAdvisedList.get(i).getType().equals("TEXT")){
+                } else if (prescriptionAdvisedList.get(i).getType().equals("TEXT")) {
                     medicineNameObject.put("medicine_id", prescriptionAdvisedList.get(i).getId());
                     medicineNameObject.put("medicine_name", prescriptionAdvisedList.get(i).getMedicine());
                     medicineNameObject.put("dose", prescriptionAdvisedList.get(i).getDose());
                     medicineNameObject.put("preception_type", "1");
                     medicineArray.put(medicineNameObject);
-                }else if (prescriptionAdvisedList.get(i).getType().equals("TEST")){
+                } else if (prescriptionAdvisedList.get(i).getType().equals("TEST")) {
                     testObject.put("test_name", prescriptionAdvisedList.get(i).getTest());
                     testObject.put("test_id", prescriptionAdvisedList.get(i).getId());
 
@@ -604,7 +603,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
 
         }
 
-        if (cd.isNetworkAvailable()){
+        if (cd.isNetworkAvailable()) {
             RetrofitService.getServerResponse(new Dialog(mContext), retrofitApiClient.submitPaitaintPrescription(appointmentId,
                     chiefComplaint, "", bp, heartRate, respRate, temp, painScore, "", "",
                     userData.getId(), "", "normal", testArray.toString(), medicineArray.toString()), new WebResponse() {
@@ -613,7 +612,7 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
                     ResponseBody response = (ResponseBody) result.body();
                     try {
                         JSONObject jsonObject = new JSONObject(response.string());
-                        if (!jsonObject.getBoolean("error")){
+                        if (!jsonObject.getBoolean("error")) {
                             showToast(mContext, jsonObject.get("message").toString());
                             /*startActivity(new Intent(mContext, PrescriptionActivity.class).putExtra("AppointmentId", opdAppointment.getAppointmentId()));*/
                         }
@@ -626,13 +625,14 @@ public class PrescriptionActivity extends BaseActivity implements View.OnClickLi
 
                 @Override
                 public void onResponseFailed(String error) {
-
+                    Alerts.show(mContext, error);
                 }
             });
         }
+
     }
 
-    private String convertToBase64(String path){
+    private String convertToBase64(String path) {
 
         Bitmap bm = BitmapFactory.decodeFile(path);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

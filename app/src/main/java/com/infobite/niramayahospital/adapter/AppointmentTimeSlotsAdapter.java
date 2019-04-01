@@ -44,25 +44,23 @@ public class AppointmentTimeSlotsAdapter extends RecyclerView.Adapter<Appointmen
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
         AppointementDatum appointmentData = appointmentDataList.get(position);
-        holder.tvAvailTime.setText(appointmentData.getOpdStartTime()+" - "+appointmentData.getOpdEndTime());
+        holder.tvAvailTime.setText(appointmentData.getOpdStartTime() + " - " + appointmentData.getOpdEndTime());
         /*holder.rlAvailable.setTag(position);
         holder.rlAvailable.setOnClickListener(listener);*/
 
         holder.rlAvailable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                row_index=position;
+                row_index = position;
                 notifyDataSetChanged();
                 appointmentDetail.initAppointmentDetails(position);
             }
         });
 
-        if(row_index==position){
+        if (row_index == position) {
             holder.rlAvailable.setBackground(mContext.getResources().getDrawable(R.drawable.layout_bg_rhl2));
             holder.tvAvailTime.setTextColor(mContext.getResources().getColor(R.color.white));
-        }
-        else
-        {
+        } else {
             holder.rlAvailable.setBackground(mContext.getResources().getDrawable(R.drawable.layout_bg_rhl5));
             holder.tvAvailTime.setTextColor(mContext.getResources().getColor(R.color.black));
         }

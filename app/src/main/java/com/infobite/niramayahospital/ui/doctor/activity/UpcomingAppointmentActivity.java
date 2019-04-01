@@ -86,8 +86,6 @@ public class UpcomingAppointmentActivity extends BaseActivity {
         } catch (NumberFormatException e) {
             e.printStackTrace();
         }
-
-
         if (!isPrevious) {
             tvPrevious.setVisibility(View.GONE);
         }

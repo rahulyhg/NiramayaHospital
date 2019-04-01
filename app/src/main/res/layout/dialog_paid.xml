@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edtTotalAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:inputType="text"
+        android:paddingLeft="8dp"
+        android:text="Total amount to pay : Rs. 0.00"
+        android:textSize="@dimen/size_14" />
+
+    <EditText
+        android:id="@+id/edtPayAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Enter amount to pay : Rs. 0.00"
+        android:inputType="number"
+        android:paddingLeft="8dp"
+        android:textSize="@dimen/size_14" />
+
+    <Button
+        android:id="@+id/btnPay"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:background="@color/colorPrimary"
+        android:text="Pay"
+        android:textColor="@color/white" />
+</LinearLayout>

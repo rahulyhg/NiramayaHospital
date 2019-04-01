@@ -37,7 +37,7 @@ public class BypassActivity extends BaseActivity implements View.OnClickListener
                 startActivity(new Intent(mContext, HomeActivity.class));
                 break;
             case R.id.btnPharmacy :
-                startActivity(new Intent(mContext, HomeActivity.class));
+                startActivity(new Intent(mContext, com.infobite.niramayahospital.ui.pharmacy.activity.HomeActivity.class));
                 break;
             case R.id.btnPathology :
                 startActivity(new Intent(mContext, HomeActivity.class));
