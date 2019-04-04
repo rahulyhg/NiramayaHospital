@@ -14,9 +14,14 @@ public class Constant {
     public static final String MEDICINE_PATHOLOGY = "api/select_medicine_test.php";
 
 
-
     public static final String USER_LOGIN_DATA = "userLoginData";
     public static final String IS_LOGIN = "isLogin";
+
+
+    //farmacy api
+    public static final String CREATE_MEDICINE_API = "api/insert-medicine-category.php";
+    public static final String INSERT_MEDICINE_API = "api/insert-medicine.php";
+    public static final String SELECT_MEDICINE_API = "api/select_medicine.php";
 
 
     // Fragment constant
@@ -57,12 +62,12 @@ public class Constant {
     public static final String ContactEditFragment = "ContactEditFragment";
     public static final String PersonalDetailFragment = "PersonalDetailFragment";
     public static final String ServiceDetailFragment = "ServiceDetailFragment";
-    public static final String AddPrescriptionFragment = "AddPrescriptionFragment" ;
-    public static final String ViewReportsFragment =  "ViewReportsFragment";
+    public static final String AddPrescriptionFragment = "AddPrescriptionFragment";
+    public static final String ViewReportsFragment = "ViewReportsFragment";
     public static final String PastHistoryFragment = "PastHistoryFragment";
     public static final String NurseNotesFragment = "NurseNotesFragment";
     public static final String AddMedicineFragment = "Add Medicine";
-    public static final String HomeFragment = "Home" ;
+    public static final String HomeFragment = "Home";
     public static final String LatestExpensesFragment = "Latest Expences";
     public static final String LatestSalesFragment = "Latest Sales";
     public static final String LatestMedicineFragment = "Latest Medicines";

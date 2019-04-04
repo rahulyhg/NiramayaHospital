@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.ui.SignInActivity;
+import com.infobite.niramayahospital.ui.doctor.activity.NotificationActivity;
 import com.infobite.niramayahospital.ui.pharmacy.fragment.AddMedicineFragment;
 import com.infobite.niramayahospital.ui.pharmacy.fragment.DashboardFragment;
 import com.infobite.niramayahospital.ui.pharmacy.fragment.InvoiceFragment;
@@ -78,6 +79,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         findViewById(R.id.txtSetting).setOnClickListener(this);
         findViewById(R.id.txtInvoice).setOnClickListener(this);
         findViewById(R.id.llLogout).setOnClickListener(this);
+        findViewById(R.id.imgNotification).setOnClickListener(this);
     }
 
     @Override
@@ -92,7 +94,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.llLogout:
                 logout();
-
+                break;
+            case R.id.imgNotification:
+                Intent intent = new Intent(mContext, NotificationActivity.class);
+                startActivity(intent);
                 break;
             case R.id.txtDashboard:
                 txtTitle.setText("Dashboard");
@@ -170,11 +175,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             txtTitle.setText("Dashboard");
             fragmentUtilsHome.replaceFragment(new DashboardFragment(), Constant.HomeFragment, R.id.home_frame);
         } else if (ProfileFragment != null) {
-            txtTitle.setText("Profile");
-            fragmentUtilsHome.replaceFragment(new ProfileFragment(), Constant.ProfileFragment, R.id.home_frame);
+            txtTitle.setText("Dashboard");
+            fragmentUtilsHome.replaceFragment(new DashboardFragment(), Constant.ProfileFragment, R.id.home_frame);
         } else if (AddMedicineFragment != null) {
-            txtTitle.setText("Add Medicine");
-            fragmentUtilsHome.replaceFragment(new AddMedicineFragment(), Constant.AddMedicineFragment, R.id.home_frame);
+            txtTitle.setText("Dashboard");
+            fragmentUtilsHome.replaceFragment(new DashboardFragment(), Constant.AddMedicineFragment, R.id.home_frame);
         } else {
             finish();
         }

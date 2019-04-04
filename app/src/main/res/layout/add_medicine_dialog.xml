@@ -43,6 +43,7 @@
                     android:textStyle="normal" />
 
                 <EditText
+                    android:id="@+id/etMedicineTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
@@ -61,6 +62,7 @@
                     android:textStyle="normal" />
 
                 <EditText
+                    android:id="@+id/etMedicineCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
@@ -69,6 +71,46 @@
                     android:textSize="@dimen/size_14"
                     android:textStyle="normal" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Description"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:id="@+id/etMedicineDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="text"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:text="Recommendation"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:id="@+id/etMedicineRecommendation"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:gravity="start"
+                    android:inputType="text"
+                    android:padding="18dp"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -81,6 +123,7 @@
                     android:textStyle="normal" />
 
                 <EditText
+                    android:id="@+id/etMedicineStoreBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
@@ -88,7 +131,6 @@
                     android:padding="8dp"
                     android:textSize="@dimen/size_14"
                     android:textStyle="normal" />
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -101,6 +143,7 @@
                     android:textStyle="normal" />
 
                 <EditText
+                    android:id="@+id/etMedicinePurPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
@@ -108,7 +151,6 @@
                     android:padding="8dp"
                     android:textSize="@dimen/size_14"
                     android:textStyle="normal" />
-
 
                 <TextView
                     android:layout_width="match_parent"
@@ -122,6 +164,7 @@
                     android:textStyle="normal" />
 
                 <EditText
+                    android:id="@+id/etMedicineSellingPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
@@ -130,6 +173,26 @@
                     android:textSize="@dimen/size_14"
                     android:textStyle="normal" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:gravity="center_vertical"
+                    android:text="Discount Price"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:id="@+id/etMedicineDiscountPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -142,6 +205,7 @@
                     android:textStyle="normal" />
 
                 <EditText
+                    android:id="@+id/etMedicineQty"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
@@ -161,6 +225,7 @@
                     android:textStyle="normal" />
 
                 <EditText
+                    android:id="@+id/etMedicineGenericName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
@@ -180,6 +245,7 @@
                     android:textStyle="normal" />
 
                 <EditText
+                    android:id="@+id/etMedicineCompany"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
@@ -199,6 +265,7 @@
                     android:textStyle="normal" />
 
                 <EditText
+                    android:id="@+id/etMedicineSideEffects"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
@@ -218,7 +285,7 @@
                     android:textStyle="normal" />
 
                 <EditText
-                    android:id="@+id/etExpireDate"
+                    android:id="@+id/etMedicineExpireDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
@@ -227,6 +294,25 @@
                     android:padding="8dp"
                     android:textSize="@dimen/size_14"
                     android:textStyle="normal" />
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:textAlignment="center"
+                        android:background="@color/gray_f"
+                        android:id="@+id/etMedicineFile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:text="Choose file"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/size_14"
+                        android:textStyle="normal" />
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/btnAdd"

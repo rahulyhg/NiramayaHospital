@@ -15,6 +15,9 @@ import com.infobite.niramayahospital.R;
 import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.ui.SignInActivity;
 import com.infobite.niramayahospital.ui.pathology.fragment.FragmentAllTests;
+import com.infobite.niramayahospital.ui.pathology.fragment.ProfileFragment;
+import com.infobite.niramayahospital.ui.pathology.fragment.patient_fragment_module.PatientMainFragment;
+import com.infobite.niramayahospital.ui.pharmacy.fragment.DashboardFragment;
 import com.infobite.niramayahospital.utils.AppPreference;
 import com.infobite.niramayahospital.utils.BaseActivity;
 import com.infobite.niramayahospital.utils.FragmentUtils;
@@ -28,7 +31,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private SlidingRootNav slidingRootNav;
     public static FragmentUtils fragmentUtilsHome;
     private FragmentManager fragmentManager;
-    private FragmentUtils fragmentUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void clickListener() {
         findViewById(R.id.txtDashboard).setOnClickListener(this);
-        findViewById(R.id.txtPrescription).setOnClickListener(this);
+        findViewById(R.id.txtPatient).setOnClickListener(this);
+        findViewById(R.id.txtLabTests).setOnClickListener(this);
+        findViewById(R.id.txtProfile).setOnClickListener(this);
+        findViewById(R.id.txtExpences).setOnClickListener(this);
+        findViewById(R.id.txtDonor).setOnClickListener(this);
+        findViewById(R.id.txtSetting).setOnClickListener(this);
+        findViewById(R.id.txtNotification).setOnClickListener(this);
         findViewById(R.id.llLogout).setOnClickListener(this);
 
     }
@@ -84,6 +92,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     fragmentUtilsHome.replaceFragment(new FragmentAllTests(), Constant.FragmentAllTests, R.id.home_frame);
                 }
                 break;
+            case R.id.txtProfile:
+                txtTitle.setText("All Tests");
+                if (FragmentAllTestsTag == null) {
+                    fragmentUtilsHome.replaceFragment(new ProfileFragment(), Constant.ProfileFragment, R.id.home_frame);
+                }
+                break;
+            case R.id.txtPatient:
+                txtTitle.setText("Patient");
+                if (FragmentAllTestsTag == null) {
+                    fragmentUtilsHome.replaceFragment(new PatientMainFragment(), Constant.ProfileFragment, R.id.home_frame);
+                }
+                break;
 
         }
         slidingRootNav.closeMenu();
@@ -92,15 +112,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     public void onBackPressed() {
         Fragment FragmentAllTests = fragmentManager.findFragmentByTag(Constant.FragmentAllTests);
+        Fragment FragmentProfile = fragmentManager.findFragmentByTag(Constant.ProfileFragment);
+        Fragment FragmentPatientMain = fragmentManager.findFragmentByTag(Constant.PatientFragment);
 
 
         if (FragmentAllTests != null) {
             txtTitle.setText("Dashboard");
-            fragmentUtilsHome.replaceFragment(new FragmentAllTests(), Constant.DashboardFragment, R.id.home_frame);
-        } /*else if (LatestSalesFragmentTag != null) {
+            fragmentUtilsHome.replaceFragment(new FragmentAllTests(), Constant.FragmentAllTests, R.id.home_frame);
+        } else if (FragmentProfile != null) {
             txtTitle.setText("Dashboard");
-            fragmentUtilsHome.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
-        }*/ else {
+            fragmentUtilsHome.replaceFragment(new FragmentAllTests(), Constant.FragmentAllTests, R.id.home_frame);
+        } else if (FragmentPatientMain != null) {
+            txtTitle.setText("Dashboard");
+            fragmentUtilsHome.replaceFragment(new FragmentAllTests(), Constant.FragmentAllTests, R.id.home_frame);
+        } else {
             finish();
         }
     }

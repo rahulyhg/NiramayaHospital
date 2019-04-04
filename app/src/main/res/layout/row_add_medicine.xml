@@ -51,6 +51,7 @@
                             android:textStyle="normal" />
 
                         <TextView
+                            android:id="@+id/tvMedicineName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Parasitamal"
@@ -73,6 +74,7 @@
                             android:textStyle="normal" />
 
                         <TextView
+                            android:id="@+id/tvMedicineCategory"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Pain Killer"
@@ -103,6 +105,7 @@
                             android:textStyle="normal" />
 
                         <TextView
+                            android:id="@+id/tvMedicineQuantity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="100 pcs"
@@ -125,6 +128,7 @@
                             android:textStyle="normal" />
 
                         <TextView
+                            android:id="@+id/tvMedicineStocks"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="100 pcs"
