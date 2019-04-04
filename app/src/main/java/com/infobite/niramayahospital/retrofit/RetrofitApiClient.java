@@ -59,4 +59,23 @@ public interface RetrofitApiClient {
     @FormUrlEncoded
     @POST(Constant.SELECT_MEDICINE_API)
     Call<SelectMedicineMainModal> selectMedicine(@Field("hospital_id") String hospital_id);
+
+
+    @POST(Constant.SUBMIT_PRESCRIPTION_PAITAINT)
+    Call<ResponseBody> submitPaitaintPrescription(@Field("appointment_id") String appointment_id,
+                                                  @Field("cheif_complaints") String cheif_complaints,
+                                                  @Field("vitals") String vitals,
+                                                  @Field("bp") String bp,
+                                                  @Field("heart_rate_per_min") String heart_rate_per_min,
+                                                  @Field("resp_rate_min") String resp_rate_min,
+                                                  @Field("temp") String temp,
+                                                  @Field("pain_score") String pain_score,
+                                                  @Field("treatement_given") String treatement_given,
+                                                  @Field("treatment_advice") String treatment_advice,
+                                                  @Field("dr_id") String dr_id,
+                                                  @Field("follow_up_advice") String follow_up_advice,
+                                                  @Field("type_of_discharge") String type_of_discharge,
+                                                  @Field("pathology_test_list") String pathology_test_list,
+                                                  @Field("medicine_list") String medicine_list);
+
 }

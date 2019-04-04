@@ -25,6 +25,7 @@ import com.infobite.niramayahospital.retrofit.RetrofitApiClient;
 import com.infobite.niramayahospital.retrofit.RetrofitService;
 import com.infobite.niramayahospital.retrofit.WebResponse;
 import com.infobite.niramayahospital.ui.doctor.activity.HomeActivity;
+import com.infobite.niramayahospital.ui.doctor.activity.PrescriptionActivity;
 import com.infobite.niramayahospital.ui.doctor.activity.UpcomingAppointmentActivity;
 import com.infobite.niramayahospital.utils.AppPreference;
 import com.infobite.niramayahospital.utils.BaseFragment;
@@ -158,7 +159,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
         }
     }
 
-    private void appointmentAction(String action, OpdAppointment opdAppointment) {
+    private void appointmentAction(String action, final OpdAppointment opdAppointment) {
         if (cd.isNetworkAvailable()){
             RetrofitService.getServerResponse(new Dialog(mContext), retrofitApiClient.appointmentStatus(opdAppointment.getAppointmentId(), action), new WebResponse() {
                 @Override
@@ -168,6 +169,7 @@ public class DashboardFragment extends BaseFragment implements View.OnClickListe
                         JSONObject jsonObject = new JSONObject(response.string());
                         if (!jsonObject.getBoolean("error")){
                             showToast(mContext, jsonObject.get("message").toString());
+                            startActivity(new Intent(mContext, PrescriptionActivity.class).putExtra("AppointmentId", opdAppointment.getAppointmentId()));
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
