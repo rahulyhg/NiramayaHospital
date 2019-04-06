@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -62,17 +63,46 @@
             android:layout_height="match_parent" />
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fbAddMedicine"
-        android:layout_margin="16dp"
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:outlineSpotShadowColor="@color/colorPrimaryDark"
-        app:backgroundTint="@color/colorPrimaryDark"
-        android:src="@drawable/ic_add_p"
-        app:elevation="0dp"
-        android:tint="@color/white"
-        app:maxImageSize="34dp" />
-</RelativeLayout>
+        android:layout_height="wrap_content">
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/menu_addMedicine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="16dp"
+            fab:menu_colorNormal="#FFB805"
+            fab:menu_colorPressed="#F2AB00"
+            fab:menu_colorRipple="#D99200"
+            fab:menu_labels_singleLine="true"
+            fab:menu_shadowColor="#444">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fabCategory"
+                style="@style/MenuButtonsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:padding="8dp"
+                android:src="@drawable/ic_subcategory"
+                app:fabSize="mini"
+                app:fab_label="Category"
+                fab:fab_label="Add Medicine" />
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fabAddMedicine"
+                style="@style/MenuButtonsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_teblate"
+                app:fabSize="mini"
+                app:fab_label="Add Medicine" />
+
+
+        </com.github.clans.fab.FloatingActionMenu>
+    </RelativeLayout>
+
+</FrameLayout>

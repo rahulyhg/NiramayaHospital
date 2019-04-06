@@ -27,6 +27,17 @@
         <activity android:name=".ui.SignInActivity" />
         <activity android:name=".ui.BypassActivity" />
         <activity android:name=".ui.doctor.activity.UpcomingAppointmentActivity" />
+
+        <!--<activity android:name=".ui.pharmacy.activity.PastPrescriptionDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.doctor.activity.NotificationActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.SignInActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.BypassActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.doctor.activity.UpcomingAppointmentActivity"
+            android:screenOrientation="portrait"/>-->
         <activity
             android:name=".ui.doctor.activity.PrescriptionActivity"
             android:windowSoftInputMode="adjustPan"
@@ -48,22 +59,29 @@
                     android:scheme="http" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.doctor.activity.ScheduleActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.doctor.activity.SplashActivity">
+        <activity android:name=".ui.doctor.activity.SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.doctor.activity.LoginActivity" />
-        <activity android:name=".ui.doctor.activity.DoctorProfileActivity" />
-        <activity android:name=".ui.pharmacy.activity.HomeActivity" />
-        <activity android:name=".ui.pharmacy.activity.ViewPastPrescriptionActivity" />
-        <activity android:name=".ui.pathology.activity.MainActivity" />
+        <activity android:name=".ui.doctor.activity.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.doctor.activity.DoctorProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.pharmacy.activity.HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.pharmacy.activity.ViewPastPrescriptionActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.pathology.activity.MainActivity"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="io.fabric.ApiKey"

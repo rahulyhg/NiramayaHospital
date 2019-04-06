@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="24dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_i"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:padding="16dp"
+            android:text="Category"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="@dimen/size_20"
+            android:textStyle="bold" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="Category Name"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_16"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:id="@+id/etTitleCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:inputType="text"
+                    android:padding="14dp"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginBottom="6dp"
+                    android:gravity="start"
+                    android:text="Category Description"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/size_16"
+                    android:textStyle="normal" />
+
+                <EditText
+                    android:id="@+id/etCategoryDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/layout_bg_white_p7"
+                    android:gravity="start"
+                    android:inputType="text|textMultiLine"
+                    android:padding="18dp"
+                    android:singleLine="false"
+                    android:textAlignment="viewStart"
+                    android:textSize="@dimen/size_14"
+                    android:textStyle="normal" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btnAddCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_bg5"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:text="Add"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+
+                    <Button
+                        android:id="@+id/btnUpdateCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="20dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_bg5"
+                        android:paddingLeft="16dp"
+                        android:paddingRight="16dp"
+                        android:text="Update"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>
