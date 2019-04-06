@@ -7,6 +7,7 @@ import com.infobite.niramayahospital.BuildConfig;
 import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.models.doctor.appointement.DoctorAppointementModel;
 import com.infobite.niramayahospital.models.doctor.medicine_pathology.MedicinePathologyMainModal;
+import com.infobite.niramayahospital.models.pharmay_modal.items_data_modal.select_category_modal.SelectCategoryMainModal;
 import com.infobite.niramayahospital.models.pharmay_modal.items_data_modal.select_medicine_modal.SelectMedicineMainModal;
 import com.infobite.niramayahospital.utils.AppProgressDialog;
 
@@ -118,6 +119,42 @@ public class RetrofitService {
             }
         });
     }
+    public static void updateMedicineData(final Dialog dialog, final Call<ResponseBody> method, final WebResponse webResponse) {
+        if (dialog != null)
+            AppProgressDialog.show(dialog);
+
+        method.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                AppProgressDialog.hide(dialog);
+                WebServiceResponse.handleResponse(response, webResponse);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable throwable) {
+                AppProgressDialog.hide(dialog);
+                webResponse.onResponseFailed(throwable.getMessage());
+            }
+        });
+    }
+    public static void updateCategoryData(final Dialog dialog, final Call<ResponseBody> method, final WebResponse webResponse) {
+        if (dialog != null)
+            AppProgressDialog.show(dialog);
+
+        method.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                AppProgressDialog.hide(dialog);
+                WebServiceResponse.handleResponse(response, webResponse);
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable throwable) {
+                AppProgressDialog.hide(dialog);
+                webResponse.onResponseFailed(throwable.getMessage());
+            }
+        });
+    }
 
     public static void selectMedicineData(final Dialog dialog, final Call<SelectMedicineMainModal> method, final WebResponse webResponse) {
         if (dialog != null)
@@ -138,6 +175,24 @@ public class RetrofitService {
         });
     }
 
+    public static void selectCategoryData(final Dialog dialog, final Call<SelectCategoryMainModal> method, final WebResponse webResponse) {
+        if (dialog != null)
+            AppProgressDialog.show(dialog);
+
+        method.enqueue(new Callback<SelectCategoryMainModal>() {
+            @Override
+            public void onResponse(Call<SelectCategoryMainModal> call, Response<SelectCategoryMainModal> response) {
+                AppProgressDialog.hide(dialog);
+                WebServiceResponse.handleResponse(response, webResponse);
+            }
+
+            @Override
+            public void onFailure(Call<SelectCategoryMainModal> call, Throwable throwable) {
+                AppProgressDialog.hide(dialog);
+                webResponse.onResponseFailed(throwable.getMessage());
+            }
+        });
+    }
     public static void getDoctorAppointment(final Dialog dialog, final Call<DoctorAppointementModel> method, final WebResponse webResponse) {
         if (dialog != null)
             AppProgressDialog.show(dialog);

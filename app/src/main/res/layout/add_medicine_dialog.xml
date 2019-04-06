@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -61,15 +62,19 @@
                     android:textSize="@dimen/size_14"
                     android:textStyle="normal" />
 
-                <EditText
-                    android:id="@+id/etMedicineCategory"
+                <RelativeLayout
+                    android:id="@+id/rlSpinnerCategory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
                     android:background="@drawable/layout_bg_white_p7"
-                    android:inputType="text"
-                    android:padding="8dp"
-                    android:textSize="@dimen/size_14"
-                    android:textStyle="normal" />
+                    android:padding="8dp">
+
+                    <Spinner
+                        android:id="@+id/spnCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </RelativeLayout>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -101,12 +106,13 @@
                     android:textStyle="normal" />
 
                 <EditText
+                    android:layout_marginBottom="6dp"
                     android:id="@+id/etMedicineRecommendation"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/layout_bg_white_p7"
                     android:gravity="start"
-                    android:inputType="text"
+                    android:inputType="text|textMultiLine"
                     android:padding="18dp"
                     android:textAlignment="viewStart"
                     android:textSize="@dimen/size_14"
@@ -282,7 +288,8 @@
                     android:text="Expire Date"
                     android:textColor="@color/black"
                     android:textSize="@dimen/size_14"
-                    android:textStyle="normal" />
+                    android:textStyle="normal"
+                    android:visibility="gone" />
 
                 <EditText
                     android:id="@+id/etMedicineExpireDate"
@@ -293,22 +300,25 @@
                     android:inputType="text"
                     android:padding="8dp"
                     android:textSize="@dimen/size_14"
-                    android:textStyle="normal" />
+                    android:textStyle="normal"
+                    android:visibility="gone" />
+
                 <LinearLayout
-                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:orientation="horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:visibility="gone">
+
                     <TextView
-                        android:textAlignment="center"
-                        android:background="@color/gray_f"
                         android:id="@+id/etMedicineFile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3dp"
                         android:layout_marginBottom="3dp"
+                        android:background="@color/gray_f"
                         android:text="Choose file"
+                        android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/size_14"
                         android:textStyle="normal" />

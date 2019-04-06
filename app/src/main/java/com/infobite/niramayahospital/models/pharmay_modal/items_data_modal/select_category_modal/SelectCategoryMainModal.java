@@ -1,14 +1,16 @@
-package com.infobite.niramayahospital.models.pharmay_modal.items_data_modal.select_medicine_modal;
+package com.infobite.niramayahospital.models.pharmay_modal.items_data_modal.select_category_modal;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class SelectMedicineMainModal implements Parcelable {
+public class SelectCategoryMainModal implements Parcelable {
 
     @SerializedName("error")
     @Expose
@@ -19,29 +21,29 @@ public class SelectMedicineMainModal implements Parcelable {
     @SerializedName("medcinie")
     @Expose
     private List<Medcinie> medcinie = new ArrayList<Medcinie>();
-    public final static Parcelable.Creator<SelectMedicineMainModal> CREATOR = new Creator<SelectMedicineMainModal>() {
+    public final static Parcelable.Creator<SelectCategoryMainModal> CREATOR = new Creator<SelectCategoryMainModal>() {
 
 
         @SuppressWarnings({
                 "unchecked"
         })
-        public SelectMedicineMainModal createFromParcel(Parcel in) {
-            return new SelectMedicineMainModal(in);
+        public SelectCategoryMainModal createFromParcel(Parcel in) {
+            return new SelectCategoryMainModal(in);
         }
 
-        public SelectMedicineMainModal[] newArray(int size) {
-            return (new SelectMedicineMainModal[size]);
+        public SelectCategoryMainModal[] newArray(int size) {
+            return (new SelectCategoryMainModal[size]);
         }
 
     };
 
-    protected SelectMedicineMainModal(Parcel in) {
+    protected SelectCategoryMainModal(Parcel in) {
         this.error = ((Boolean) in.readValue((Boolean.class.getClassLoader())));
         this.message = ((String) in.readValue((String.class.getClassLoader())));
-        in.readList(this.medcinie, (com.infobite.niramayahospital.models.pharmay_modal.items_data_modal.select_medicine_modal.Medcinie.class.getClassLoader()));
+        in.readList(this.medcinie, (com.infobite.niramayahospital.models.pharmay_modal.items_data_modal.select_category_modal.Medcinie.class.getClassLoader()));
     }
 
-    public SelectMedicineMainModal() {
+    public SelectCategoryMainModal() {
     }
 
     public Boolean getError() {
@@ -77,5 +79,5 @@ public class SelectMedicineMainModal implements Parcelable {
     public int describeContents() {
         return 0;
     }
-}
 
+}

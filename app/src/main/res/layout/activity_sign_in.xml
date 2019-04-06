@@ -53,28 +53,29 @@
                     android:background="@drawable/edittext_back_b"
                     android:hint="Enter Username"
                     android:imeOptions="actionNext"
-                    android:inputType="text"
+                    android:inputType="textCapCharacters"
                     android:paddingLeft="16dp"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp" />
+                    android:paddingBottom="10dp"
+                    android:textAllCaps="true" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/size_6"
                     android:layout_marginTop="16dp"
+                    android:layout_marginBottom="@dimen/size_6"
                     android:padding="6sp"
                     android:text="Password"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/size_18"/>
+                    android:textSize="@dimen/size_18" />
 
                 <EditText
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/edittext_back_b"
-                    android:imeOptions="actionDone"
                     android:hint="Enter Your Password"
+                    android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:paddingLeft="16dp"
                     android:paddingTop="10dp"

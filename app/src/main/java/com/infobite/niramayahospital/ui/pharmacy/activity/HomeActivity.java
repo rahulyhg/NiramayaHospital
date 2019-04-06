@@ -173,13 +173,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             finish();
         } else if (PrescriptionFragment != null) {
             txtTitle.setText("Dashboard");
-            fragmentUtilsHome.replaceFragment(new DashboardFragment(), Constant.HomeFragment, R.id.home_frame);
+            fragmentUtilsHome.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
         } else if (ProfileFragment != null) {
             txtTitle.setText("Dashboard");
-            fragmentUtilsHome.replaceFragment(new DashboardFragment(), Constant.ProfileFragment, R.id.home_frame);
+            fragmentUtilsHome.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
         } else if (AddMedicineFragment != null) {
             txtTitle.setText("Dashboard");
-            fragmentUtilsHome.replaceFragment(new DashboardFragment(), Constant.AddMedicineFragment, R.id.home_frame);
+            fragmentUtilsHome.replaceFragment(new DashboardFragment(), Constant.DashboardFragment, R.id.home_frame);
         } else {
             finish();
         }

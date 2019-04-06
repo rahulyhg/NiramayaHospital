@@ -9,7 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.infobite.niramayahospital.R;
+import com.infobite.niramayahospital.constant.Constant;
 import com.infobite.niramayahospital.models.pharmay_modal.items_data_modal.select_medicine_modal.Medcinie;
+import com.infobite.niramayahospital.utils.AppPreference;
 
 import java.util.List;
 
@@ -35,10 +37,15 @@ public class AddMedicineAdapter extends RecyclerView.Adapter<AddMedicineAdapter.
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Medcinie medcinielist = addMedicineList.get(position);
 
+        String strCategoryName = AppPreference.getStringPreference(mContext, Constant.CATEGORYNAME);
+
         holder.tvMedicineName.setText(medcinielist.getTitle());
-        holder.tvMedicineCategory.setText(medcinielist.getCategoryId());
-      //  holder.tvMedicineQuantity.setText(medcinielist.getQuantity());
-        //holder.tvMedicineStocks.setText(medcinielist.getStoreBox());
+        holder.tvMedicineCategory.setText(strCategoryName);
+        holder.tvMedicineQuantity.setText(medcinielist.getQuantity());
+        holder.tvMedicineStocks.setText(medcinielist.getStoreBox());
+        String strMedicineId = medcinielist.getId();
+        AppPreference.setStringPreference(mContext,Constant.MEDICINE_ID,strMedicineId);
+
 
         holder.ivViewMedicine.setTag(position);
         holder.ivViewMedicine.setOnClickListener(onClickListener);

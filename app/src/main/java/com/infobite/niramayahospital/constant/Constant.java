@@ -23,6 +23,9 @@ public class Constant {
     public static final String CREATE_MEDICINE_API = "api/insert-medicine-category.php";
     public static final String INSERT_MEDICINE_API = "api/insert-medicine.php";
     public static final String SELECT_MEDICINE_API = "api/select_medicine.php";
+    public static final String UPDATE_MEDICINE_API = "api/update-medicine.php";
+    public static final String SELECT_CATEGORY_API = "api/select-medicine-category.php";
+    public static final String UPDATE_CATEGORY_API = "api/update-medicine-category.php";
 
 
     // Fragment constant
@@ -76,4 +79,7 @@ public class Constant {
     public static final String AllTestsFragMent = "All Tests";
 
     public static final String FragmentAllTests = "FragmentAllTests";
+    public static final String CATEGORYNAME = "CategoryName";
+    public static final String MEDICINE_ID = "MedicineId";
+    public static final String CATEGORY_ID = "CategoryId";
 }
